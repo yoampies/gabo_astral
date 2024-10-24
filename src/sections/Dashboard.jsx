@@ -17,7 +17,7 @@ export default function Dashboard() {
 
   return (
     <div className="w-full min-h-screen inset-0" id="dashboard">
-      <nav className="p-4 mx-12 relative z-10">
+      <nav className="p-4 mx-12">
         <div className="container mx-auto flex justify-between items-center">
           {/* Logo */}
           <div className="text-white text-lg font-semibold">
@@ -46,7 +46,7 @@ export default function Dashboard() {
         </div>
       </nav>
       <div className="w-full h-full absolute">
-        <Canvas className="min-h-screen">
+        <Canvas className="min-h-screen" id="canvasID">
           <Suspense fallback={null}>
             <PerspectiveCamera makeDefault position={[0, 0, 30]}/>
             <ModelCamera isMobile={isMobile}>

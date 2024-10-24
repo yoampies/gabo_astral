@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Events() {
   return (
-    <section className="bg-gradient-to-b from-black from-30% to-[#0b0b22]">
+    <section className="bg-gradient-to-b from-black from-30% to-[#0b0b22]" id="eventsID">
       <div className="container mx-auto w-9/12">
         {/* Section Title */}
         <h2 className="text-white text-2xl font-bold mb-6">Today's Cosmic Events</h2>

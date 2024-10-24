@@ -5,3 +5,13 @@
 body {
     background-color: black;
 }
+
+#canvasID {
+    z-index: 0; /* set lower z-index value */
+    position: relative; /* position must be set for z-index to work */
+}
+
+#eventsID {
+    z-index: 1; /* set lower z-index value */
+    position: relative; /* position must be set for z-index to work */
+}
