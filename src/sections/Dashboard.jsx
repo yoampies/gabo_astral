@@ -16,7 +16,7 @@ export default function Dashboard() {
   const isMobile = useMediaQuery({ maxWidth: 800 })
 
   return (
-    <div className="w-full h-full absolute inset-0" id="dashboard">
+    <div className="w-full min-h-screen inset-0" id="dashboard">
       <nav className="p-4 mx-12 relative z-10">
         <div className="container mx-auto flex justify-between items-center">
           {/* Logo */}
@@ -45,14 +45,16 @@ export default function Dashboard() {
           </div>
         </div>
       </nav>
-      <Canvas classname="relative z-0">
-        <Suspense fallback={null}>
-          <PerspectiveCamera makeDefault position={[0, 0, 30]}/>
-          <ModelCamera isMobile={isMobile}>
-            <Model scale={0.01} position={[0, -1, 9]}/>
-          </ModelCamera>
-        </Suspense>
-      </Canvas>
+      <div className="w-full h-full absolute">
+        <Canvas className="min-h-screen">
+          <Suspense fallback={null}>
+            <PerspectiveCamera makeDefault position={[0, 0, 30]}/>
+            <ModelCamera isMobile={isMobile}>
+              <Model scale={0.01} position={[0, -1, 9]}/>
+            </ModelCamera>
+          </Suspense>
+        </Canvas>
+      </div>
     </div>
   )
 }
