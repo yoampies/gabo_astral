@@ -1,8 +1,10 @@
-import React from 'react'
+import React from 'react';
+import moon from '../assets/images/moon.jpg';
+import mercury from '../assets/images/mercury.png';
 
 export default function Events() {
   return (
-    <section className="bg-gradient-to-b from-black from-30% to-[#0b0b22]" id="eventsID">
+    <section id="eventsID">
       <div className="container mx-auto w-9/12">
         {/* Section Title */}
         <h2 className="text-white text-2xl font-bold mb-6">Today's Cosmic Events</h2>
@@ -13,7 +15,7 @@ export default function Events() {
           {/* Card 1 - New Moon in Leo */}
           <div className="bg-[#1c1c3a] rounded-lg overflow-hidden">
             <img 
-              src="https://via.placeholder.com/300x200" 
+              src={moon} 
               alt="New Moon in Leo" 
               className="w-full h-48 object-cover"
             />
@@ -31,7 +33,7 @@ export default function Events() {
           {/* Card 2 - Mercury enters Virgo */}
           <div className="bg-[#1c1c3a] rounded-lg overflow-hidden">
             <img 
-              src="https://via.placeholder.com/300x200" 
+              src={mercury}
               alt="Mercury enters Virgo" 
               className="w-full h-48 object-cover"
             />

@@ -7,11 +7,16 @@ body {
 }
 
 #canvasID {
-    z-index: 0; /* set lower z-index value */
-    position: relative; /* position must be set for z-index to work */
+    z-index: 0; 
+    position: relative; 
 }
 
 #eventsID {
-    z-index: 1; /* set lower z-index value */
-    position: relative; /* position must be set for z-index to work */
+    z-index: 1; 
+    position: relative; 
+}
+
+#starsID {
+    z-index: 2; 
+    position: relative; 
 }

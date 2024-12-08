@@ -1,5 +1,3 @@
-//React Tools
-import { Suspense } from 'react';
 //Libraries
 import { Canvas } from '@react-three/fiber';
 import { PerspectiveCamera } from '@react-three/drei';
@@ -23,7 +21,6 @@ export default function Dashboard() {
           <div className="text-white text-lg font-semibold">
             <span>Astro-Gabo</span>
           </div>
-
           <div className="flex items-center space-x-4">
             {/*NavLinks*/}
             <ul className="flex justify-between gap-8 mr-2">
@@ -46,13 +43,11 @@ export default function Dashboard() {
         </div>
       </nav>
       <div className="w-full h-full absolute">
-        <Canvas className="min-h-screen" id="canvasID">
-          <Suspense fallback={null}>
-            <PerspectiveCamera makeDefault position={[0, 0, 30]}/>
-            <ModelCamera isMobile={isMobile}>
-              <Model scale={0.01} position={[0, -1, 9]}/>
-            </ModelCamera>
-          </Suspense>
+        <Canvas className="min-h-screen" id="canvasID" background="#000000"> 
+          <PerspectiveCamera makeDefault position={[0, 0, 30]} near={1} far={1000} />             
+          <ModelCamera isMobile={isMobile}>
+            <Model scale={0.01} position={[0, -1, 9]}/>
+          </ModelCamera>
         </Canvas>
       </div>
     </div>
