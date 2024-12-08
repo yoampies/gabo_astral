@@ -1,6 +1,6 @@
 import React from 'react';
-import moon from '../assets/images/moon.jpg';
-import mercury from '../assets/images/mercury.png';
+import moon from '../assets/moon.jpg';
+import mercury from '../assets/mercury.png';
 
 export default function Events() {
   return (

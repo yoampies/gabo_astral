@@ -1,4 +1,6 @@
-import prof_pic_1 from '../assets/images/prof_pic1.jpg';
+import prof_pic_1 from '../assets/prof_pic1.jpg';
+import prof_pic_2 from '../assets/prof_pic2.jpg';
+import prof_pic_3 from '../assets/prof_pic3.jpg';
 
 export const navLinks = [
     {
@@ -21,7 +23,7 @@ export const navLinks = [
 export const reviews = [
     {
         id: 1,
-        img: {prof_pic_1},
+        img: prof_pic_1,
         name: 'Maria Garcia',
         date: '26/10/2024',
         comment: 'Desde que conocí a Gabriel, mis consultas astrológicas han tomado un nuevo rumbo. ' +
@@ -31,7 +33,7 @@ export const reviews = [
     },
     {
         id: 2,
-        img: '../assets/images/prof_pic2.jpg',
+        img: prof_pic_2,
         name: 'Julio Perez',
         date: '05/02/2022',
         comment: 'Gabriel tiene un don especial para descifrar las estrellas. '+
@@ -40,7 +42,7 @@ export const reviews = [
     },
     {
         id: 3,
-        img: '../assets/images/prof_pic3.jpg',
+        img: prof_pic_3,
         name: 'Juan Marino',
         date: '16/01/2023',
         comment: 'Gracias a Gabriel, he encontrado una guía confiable en mi camino espiritual. '+

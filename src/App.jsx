@@ -1,10 +1,10 @@
-import gear from './assets/images/gear.svg'
-import profilepic from './assets/images/profile_pic.jpg'
+import gear from './assets/gear.svg'
+import profilepic from './assets/profile_pic.jpg'
 import Dashboard from './sections/Dashboard'
 import Events from './sections/Events'
 import Reviews from './sections/Reviews'
 import Footer from './sections/Footer'
-import { Canvas } from '@react-three/fiber'
+import { Canvas } from '@react-three/fiber' 
 
 
 function App() {

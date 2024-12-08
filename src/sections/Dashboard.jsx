@@ -6,8 +6,8 @@ import { useMediaQuery } from 'react-responsive';
 import Model from '../components/Model';
 import ModelCamera from '../components/ModelCamera'
 //Assets
-import gear from '../assets/images/gear.svg'
-import profpic from '../assets/images/profile_pic.jpg'
+import gear from '../assets/gear.svg'
+import profpic from '../assets/profile_pic.jpg'
 import { navLinks } from '../constants';
 
 export default function Dashboard() {

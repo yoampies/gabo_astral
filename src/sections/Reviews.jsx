@@ -1,5 +1,6 @@
-import React from 'react'
-import { reviews } from '../constants'
+import React from 'react';
+import { reviews } from '../constants';
+import prof_pic_1 from '../assets/prof_pic1.jpg';
 
 
 export default function Reviews() {
