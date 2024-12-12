@@ -1,4 +1,3 @@
-import gear from '../assets/gear.svg'
 import profilepic from '../assets/profile_pic.jpg'
 import Dashboard from '../sections/Dashboard'
 import Events from '../sections/Events'

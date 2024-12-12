@@ -1,5 +1,6 @@
 import { navLinks } from '../constants';
-import gear from '../assets/gear.svg'
+import gear from '../assets/gear.png'
+import bell from '../assets/bell.png'
 import profpic from '../assets/profile_pic.jpg'
 
 export default function Navbar() {
@@ -16,21 +17,21 @@ export default function Navbar() {
             {/*NavLinks*/}
             <ul className="flex justify-between gap-8 mr-2">
                 {
-                navLinks.map((item) => (
-                    <div key={item.id}>
-                        <a href={item.href}>
-                            <li className="text-white">
-                                {item.name}
-                            </li>
-                        </a>
-                    </div>
-                ))
+                    navLinks.map((item) => (
+                        <div key={item.id}>
+                            <a href={item.href}>
+                                <li className="text-white">
+                                    {item.name}
+                                </li>
+                            </a>
+                        </div>
+                    ))
                 }
             </ul>
 
             {/* Icons and Profile */}
-            <button className="text-white bg-{#}">🔔</button>
-            <button className="text-white">⚙️</button>
+            <a className="text-white"><img src={bell} className='size-4'/></a>
+            <a className="text-white"><img src={gear} className='size-4'/></a>
             <div className="w-8 h-8 rounded-full bg-white overflow-hidden">
                 <img src={profpic} alt="Profile" />
             </div>

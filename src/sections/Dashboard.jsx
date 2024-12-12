@@ -5,10 +5,6 @@ import { useMediaQuery } from 'react-responsive';
 //Components
 import Model from '../components/Model';
 import ModelCamera from '../components/ModelCamera'
-//Assets
-import gear from '../assets/gear.svg'
-import profpic from '../assets/profile_pic.jpg'
-import { navLinks } from '../constants';
 
 export default function Dashboard() {
   const isMobile = useMediaQuery({ maxWidth: 800 })
