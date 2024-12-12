@@ -6,17 +6,17 @@ export const navLinks = [
     {
         id: 1,
         name: 'Tarot',
-        href: ''
+        href: '/tarot'
     },
     {
         id: 2,
         name: 'Astrología',
-        href: ''
+        href: '/astrologia'
     },
     {
         id: 3,
         name: 'Contacto',
-        href: ''
+        href: '/contacto'
     }
 ];
 

@@ -6,6 +6,9 @@ import {
   Route,
 } from "react-router-dom";
 import Home from "./pages/Home";
+import Tarot from "./pages/Tarot";
+import Astrology from "./pages/Astrology";
+import Contact from "./pages/Contact";
 
 
 function App() {
@@ -16,6 +19,9 @@ function App() {
         <Navbar />
         <Routes>
           <Route exact path="/" element={<Home />} />  
+          <Route exact path="/tarot" element={<Tarot />} />  
+          <Route exact path="/astrologia" element={<Astrology />} />  
+          <Route exact path="/contacto" element={<Contact />} />  
         </Routes>
       </Router>
     </div>
