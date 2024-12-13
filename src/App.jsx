@@ -1,5 +1,5 @@
 import Navbar from "./sections/Navbar";
-import { useState } from "react";
+import Footer from "./sections/Footer"
 import {
   BrowserRouter as Router,
   Routes,
@@ -23,6 +23,7 @@ function App() {
           <Route exact path="/astrologia" element={<Astrology />} />  
           <Route exact path="/contacto" element={<Contact />} />  
         </Routes>
+        <Footer />
       </Router>
     </div>
   )

@@ -15,8 +15,3 @@ body {
     z-index: 1; 
     position: relative; 
 }
-
-#starsID {
-    z-index: 2; 
-    position: relative; 
-}

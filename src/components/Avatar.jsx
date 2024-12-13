@@ -3,7 +3,7 @@ import { useGLTF } from '@react-three/drei'
 import avatarScene from '../assets/models/avatar.glb';
 
 
-export function Model(props) {
+export default function Avatar(props) {
   const { nodes, materials } = useGLTF(avatarScene)
   return (
     <group {...props} dispose={null}>

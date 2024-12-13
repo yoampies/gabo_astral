@@ -7,11 +7,11 @@ export default function Footer() {
   return (
     <footer>
       <hr className="bg-slate-600 border-0 h-px my-8 w-10/12 mx-auto"/>
-      <div className='flex mx-auto w-6/12 justify-between'>
+      <div className='flex mx-auto w-6/12 justify-between text-gray-400 font-semibold'>
       {
         navLinks.map((item) => (
             <div key={item.id}>
-                <a href={item.href} className="text-gray-300">
+                <a href={item.href} className="hover:text-white hover:duration-150">
                   {item.name}
                 </a>
             </div>
