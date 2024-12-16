@@ -1,30 +1,56 @@
 import { useEffect, useState } from "react";
+//Styling sheet
 import "../App.css";
+//Components
 import Card from "../components/Card";
 
+//Card resources
+import fool from "../assets/tarot/Fool.jpg";
+import magician from "../assets/tarot/Magician.jpg";
+import highPriestess from "../assets/tarot/HighPriestess.jpg";
+import empress from "../assets/tarot/Empress.jpg";
+import emperor from "../assets/tarot/Emperor.jpg";
+import hierophant from "../assets/tarot/Hierophant.jpg";
+import lovers from "../assets/tarot/Lovers.jpg";
+import chariot from "../assets/tarot/Chariot.jpg";
+import strength from "../assets/tarot/Strength.jpg";
+import hermit from "../assets/tarot/Hermit.png";
+import wheelOfFortune from "../assets/tarot/WheelOfFortune.jpg";
+import justice from "../assets/tarot/Justice.jpg";
+import hangedMan from "../assets/tarot/HangedMan.jpg";
+import death from "../assets/tarot/Death.jpg";
+import temperance from "../assets/tarot/Temperance.jpg";
+import devil from "../assets/tarot/Devil.jpg";
+import tower from "../assets/tarot/Tower.jpg";
+import star from "../assets/tarot/Star.png";
+import moon from "../assets/tarot/Moon.png";
+import sun from "../assets/tarot/Sun.jpg";
+import judgement from "../assets/tarot/Judgement.jpg";
+import world from "../assets/tarot/World.jpg";
+
 const majorArcana = [
-  { name: "The Fool", image: "/tarot/fool.svg" },
-  { name: "The Magician", image: "/tarot/magician.svg" },
-  { name: "The High Priestess", image: "/tarot/high-priestess.svg" },
-  { name: "The Empress", image: "/tarot/empress.svg" },
-  { name: "The Emperor", image: "/tarot/emperor.svg" },
-  { name: "The Hierophant", image: "/tarot/hierophant.svg" },
-  { name: "The Lovers", image: "/tarot/lovers.svg" },
-  { name: "The Chariot", image: "/tarot/chariot.svg" },
-  { name: "Strength", image: "/tarot/strength.svg" },
-  { name: "The Hermit", image: "/tarot/hermit.svg" },
-  { name: "Wheel of Fortune", image: "/tarot/wheel-of-fortune.svg" },
-  { name: "Justice", image: "/tarot/justice.svg" },
-  { name: "The Hanged Man", image: "/tarot/hanged-man.svg" },
-  { name: "Death", image: "/tarot/death.svg" },
-  { name: "Temperance", image: "/tarot/temperance.svg" },
-  { name: "The Devil", image: "/tarot/devil.svg" },
-  { name: "The Tower", image: "/tarot/tower.svg" },
-  { name: "The Star", image: "/tarot/star.svg" },
-  { name: "The Moon", image: "/tarot/moon.svg" },
-  { name: "The Sun", image: "/tarot/sun.svg" },
-  { name: "Judgement", image: "/tarot/judgement.svg" },
-  { name: "The World", image: "/tarot/world.svg" },
+  { name: "The Fool", image: fool },
+  { name: "The Magician", image: magician },
+  { name: "The High Priestess", image: highPriestess },
+  { name: "The Empress", image: empress },
+  { name: "The Emperor", image: emperor },
+  { name: "The Hierophant", image: hierophant },
+  { name: "The Lovers", image: lovers },
+  { name: "The Chariot", image: chariot },
+  { name: "Strength", image: strength },
+  { name: "The Hermit", image: hermit },
+  { name: "Wheel of Fortune", image: wheelOfFortune },
+  { name: "Justice", image: justice },
+  { name: "The Hanged Man", image: hangedMan },
+  { name: "Death", image: death },
+  { name: "Temperance", image: temperance },
+  { name: "The Devil", image: devil },
+  { name: "The Tower", image: tower },
+  { name: "The Star", image: star },
+  { name: "The Moon", image: moon },
+  { name: "The Sun", image: sun },
+  { name: "Judgement", image: judgement },
+  { name: "The World", image: world }
 ];
 
 const shuffleDeck = (deck) => {
@@ -71,20 +97,20 @@ function Tarot() {
         ))}
       </div>
       {flippedCards.length === 3 && (
-        <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center bg-black bg-opacity-70 text-white text-center">
-          <h1 className="text-4xl font-bold">Your Reading</h1>
-          <ul className="mt-4">
+        <div className="absolute top-0 left-0 w-full h-full flex flex-col gap-4 justify-center items-center bg-black bg-opacity-70 text-white text-center">
+          <h1 className="text-4xl font-bold">Cartas elegidas</h1>
+          <div className="mt-6 flex grid-cols-3 gap-6">
             {flippedCards.map((card) => (
-              <li key={card.id} className="text-xl">
-                {card.name}
-              </li>
-            ))}
-          </ul>
+              <div className="col-span-1 h-64 w-48">
+                <img src={card.image} className="rounded-xl"/>
+              </div>
+            ))}  
+          </div>
           <button
-            className="mt-6 bg-violet-500 px-4 py-2 rounded-lg text-white"
+            className="mt-24 bg-violet-500 px-4 py-2 rounded-lg text-white"
             onClick={() => window.location.reload()}
           >
-            Try Again
+            Elije de nuevo
           </button>
         </div>
       )}
