@@ -8,7 +8,7 @@ export default function Reviews() {
     <section className="mt-6">
       <div className="container mx-auto w-9/12">
         {/* Section Title */}
-        <h2 className="text-white text-2xl font-bold mb-6">Reviews</h2>
+        <h2 className="text-white text-2xl font-bold mb-6">Clientes</h2>
         
         {/* Review Cards */}
         <div className="flex flex-col gap-2">

@@ -6,7 +6,7 @@ export default function Navbar() {
         <div className="container mx-auto flex justify-between items-center text-md text-gray-400 font-semibold">
             {/* Logo */}
             <a href="/">
-                <span className='hover:text-white'>Astrología</span>
+                <span className='hover:text-white'>Inicio</span>
             </a>
             <div className="flex items-center space-x-4">
             {/*NavLinks*/}
