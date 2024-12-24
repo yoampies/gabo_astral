@@ -4,6 +4,10 @@ import prof_pic_3 from '../assets/prof_pic3.jpg';
 import soul from '../assets/soul.jpg';
 import lifepath from '../assets/lifepath.jpg';
 import empowerment from '../assets/empowerment.jpg';
+import chart from '../assets/chart.jpg';
+import synastry from '../assets/synastry.jpg';
+import solarreturn from '../assets/solar-return.jpg';
+import other from '../assets/other.jpg';
 
 
 export const navLinks = [
@@ -62,12 +66,40 @@ export const slides = [
     },
     {
       title: 'Tu guía en el camino de la vida',
-      text: '¿Buscas respuestas a tus preguntas? ¿Necesitas tomar una decisión importante? El Tarot puede ayudarte en diversas áreas de tu vida, como relaciones,profundizando en tus vínculos afectivos y encuentrando soluciones a los desafíos en pareja o familia; carrera, descubriendo tu vocación, toma decisiones profesionales y encuentra oportunidades de crecimiento; bienestar, mejorando tu autoconocimiento, supera bloqueos emocionales y conecta con tu yo interior; y espiritualidad, explorando tu conexión con el universo y descubriendo tu propósito de vida.',
+      text: 'El tarot es una herramienta poderosa que te puede guiar en diversos aspectos de tu vida. Desde el amor y las relaciones, hasta tu carrera profesional y crecimiento personal, el tarot te ofrece una perspectiva única y profunda sobre ti mismo y el mundo que te rodea. Al conectar con los símbolos arcanos, podrás tomar decisiones más acertadas, superar obstáculos y descubrir tu verdadero potencial. Ya sea que busques respuestas a preguntas específicas o simplemente desees explorar tu interior, el tarot te proporcionará la claridad y la orientación que necesitas.',
       image: lifepath,
     },
     {
       title: 'Con Gabriel, encuentra claridad y empoderamiento',
-      text: 'Con una lectura personalizada, Gabriel te ayudará a:\n\nClarificar tus dudas: Obtendrás respuestas claras y concisas a tus preguntas.\nTomar mejores decisiones: El Tarot te guiará hacia el camino correcto.\nSuperar obstáculos: Identificarás los desafíos y encontrarás soluciones.\nCrecer personalmente: Descubrirás tu potencial y alcanzarás tus metas.\n\n¡Agenda tu consulta ahora y descubre el poder transformador del Tarot!',
+      text: 'Con una lectura de Tarot personalizada, Gabriel te ayudará a clarificar tus inquietudes, tomar decisiones más acertadas, superar obstáculos y descubrir tu máximo potencial. ¡Agenda tu consulta ahora y desbloquea el poder del Tarot para transformar tu vida!',
       image: empowerment,
+    },
+  ];
+
+  export const astrology = [
+    {
+      title: "¿Qué es una Carta Natal?",
+      text: `Tu carta natal es un retrato astrológico único que se crea en el momento exacto de tu nacimiento. 
+      Es como una fotografía del cielo en ese instante, reflejando la influencia de los planetas y signos en tu vida. 
+      Al igual que un horóscopo, pero mucho más personalizado, te brinda información sobre tu personalidad, relaciones, carrera y propósito de vida.`,
+      image: chart
+    },
+    {
+      title: "¿Qué es una Revolución Solar?",
+      text: `Cada año, en la misma fecha y hora de tu nacimiento, ocurre un evento astrológico llamado Revolución Solar. 
+      Este "cumpleaños cósmico" marca el inicio de un nuevo ciclo, ayudándote a comprender los temas principales del año, establecer metas y optimizar tu vida.`,
+      image: solarreturn,
+    },
+    {
+      title: "¿Qué es una Sinastría?",
+      text: `La sinastría es el estudio de la compatibilidad entre dos cartas natales. 
+      Permite descubrir atracción, compatibilidad, desafíos, oportunidades y el potencial de crecimiento en una relación.`,
+      image: synastry,
+    },
+    {
+      title: "Otros Elementos Atractivos",
+      text: `Tránsitos planetarios, predicciones astrológicas, y la conexión entre astrología y espiritualidad brindan un enfoque holístico. 
+      Consultas personalizadas ofrecen orientación adaptada a tus necesidades.`,
+      image: other,
     },
   ];

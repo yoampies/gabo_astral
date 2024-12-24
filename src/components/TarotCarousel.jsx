@@ -24,7 +24,7 @@ const TarotCarousel = () => {
   };
 
   return (
-    <div className="relative w-full max-w-4xl mx-auto p-4">
+    <div className="relative w-9/12 mx-auto p-4 mt-12">
       <div className="overflow-hidden rounded-lg shadow-lg">
         <div
           className="flex transition-transform duration-700"
@@ -33,14 +33,14 @@ const TarotCarousel = () => {
           {slides.map((slide, index) => (
             <div
               key={index}
-              className="min-w-full flex flex-col items-center bg-gray-900 text-white"
+              className="min-w-full flex flex-col items-center bg-[#1c1c3a] text-white"
             >
               <img
                 src={slide.image}
                 alt={slide.title}
                 className="w-full h-64 object-cover"
               />
-              <div className="p-6 text-center">
+              <div className="p-6 text-center px-12">
                 <h2 className="text-xl font-bold m-4">{slide.title}</h2>
                 <p className="text-mds whitespace-pre-line">{slide.text}</p>
               </div>

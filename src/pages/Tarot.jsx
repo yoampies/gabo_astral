@@ -28,7 +28,7 @@ import moon from "../assets/tarot/Moon.png";
 import sun from "../assets/tarot/Sun.jpg";
 import judgement from "../assets/tarot/Judgement.jpg";
 import world from "../assets/tarot/World.jpg";
-import { div } from "three/webgpu";
+import tarot from "../assets/tarot-banner.jpg"
 
 const majorArcana = [
   { name: "The Fool", image: fool },
@@ -88,6 +88,25 @@ function Tarot() {
 
   return (
     <div className="relative">
+      {/* Banner Section */}
+        <div className="relative w-full h-96">
+          {/* Background Image */}
+          <img
+            src={tarot}
+            alt="Astrology Background"
+            className="w-full h-full object-cover"
+          />
+          {/* Text Overlay */}
+          <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-50 text-center p-6">
+            <h1 className="text-4xl font-bold text-white mb-4">
+              ¿Qué es el tarot?
+            </h1>
+            <p className="text-base md:text-lg text-white max-w-3xl">
+            El tarot es mucho más que adivinación. Es una herramienta poderosa para el autoconocimiento y el crecimiento personal.
+             Con una lectura de tarot, podrás tomar decisiones más acertadas, superar obstáculos y conectar contigo mismo a un nivel más profundo.
+            </p>
+          </div>
+        </div>
       <div>
         <TarotCarousel />
       </div>
