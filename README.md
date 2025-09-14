@@ -1,5 +1,5 @@
 
-# Gabo Astral - Full Stack Portfolio
+# Gabo Astral - Portafolio de Astrología
 
 Bienvenido a **Gabriel Astral**, el portafolio astrológico de Gabriel Ampíes, donde hablamos de astrología, tarot y guía espiritual. Esta aplicación web interactiva permite a los usuarios explorar servicios astrológicos, realizar lecturas gratuitas de tarot y contactar directamente para consultas personalizadas. La versión movil sigue estando bajo construcción.
 
