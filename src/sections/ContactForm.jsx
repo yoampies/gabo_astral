@@ -1,6 +1,10 @@
+// Importa el hook 'useState' de React para gestionar el estado del componente.
 import React, { useState } from "react";
 
+// Define el componente funcional 'ContactForm'.
 const ContactForm = () => {
+  // Utiliza 'useState' para crear el estado 'formData', que almacenará los valores del formulario.
+  // Se inicializa con un objeto que tiene propiedades para cada campo del formulario.
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -9,31 +13,47 @@ const ContactForm = () => {
     phone: "",
   });
 
+  // Define la función 'handleChange' para actualizar el estado cuando cambian los campos del formulario.
+  // Recibe el evento del cambio como argumento.
   const handleChange = (e) => {
+    // Desestructura 'name' y 'value' del objeto 'e.target' (el elemento que disparó el evento).
     const { name, value } = e.target;
+    // Actualiza el estado 'formData' utilizando el operador de propagación (...) para mantener los
+    // valores existentes y sobrescribir solo el campo que ha cambiado.
     setFormData({
       ...formData,
       [name]: value,
     });
   };
 
+  // Define la función 'handleSubmit' para manejar el envío del formulario.
+  // Recibe el evento de envío como argumento.
   const handleSubmit = (e) => {
+    // 'e.preventDefault()' evita que la página se recargue, que es el comportamiento por defecto de un formulario.
     e.preventDefault();
+    // Muestra los datos del formulario en la consola para depuración. En una aplicación real, aquí se enviarían los datos a un servidor.
     console.log("Form submitted:", formData);
   };
 
+  // El componente retorna la estructura JSX del formulario de contacto.
   return (
+    // Contenedor principal del formulario. Clases de Tailwind CSS para centrado y espaciado.
     <div className="flex justify-center items-center min-h-screen mt-12">
       <form
+        // Asigna la función 'handleSubmit' al evento 'onSubmit' del formulario.
         onSubmit={handleSubmit}
+        // Clases de Tailwind para el estilo del formulario (ancho, color de fondo, esquinas redondeadas, relleno).
         className="w-9/12 bg-[#1c1c3a] rounded-lg px-8 pt-6 pb-8"
       >
+        {/* Título principal del formulario */}
         <p className="text-xl text-white">Formulario de Contacto</p>
+        {/* Descripción del formulario */}
         <p className="text-md text-white mt-4 mb-6">Envíame un mensaje con tu información de contacto, el servicio en el que estás interesado,
           y algún comentario para entender mejor la situación en la que deseas que te apoye, y te contactaré tan pronto como pueda!
         </p>
+        {/* Contenedor para los campos del formulario. */}
         <div className="bg-gray-300 rounded-xl px-6 py-6">
-          {/* Name Field */}
+          {/* Campo de Nombre */}
           <div className="mb-4">
             <label
               className="block text-gray-600 text-sm font-bold mb-2"
@@ -45,14 +65,17 @@ const ContactForm = () => {
               type="text"
               name="name"
               id="name"
+              // El valor del input está controlado por el estado 'formData'.
               value={formData.name}
+              // El evento 'onChange' llama a la función 'handleChange' para actualizar el estado.
               onChange={handleChange}
+              // El atributo 'required' hace que este campo sea obligatorio.
               required
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-600 leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
 
-          {/* Email Field */}
+          {/* Campo de Correo Electrónico */}
           <div className="mb-4">
             <label
               className="block text-gray-600 text-sm font-bold mb-2"
@@ -71,7 +94,7 @@ const ContactForm = () => {
             />
           </div>
 
-          {/* Service Field */}
+          {/* Campo de Servicio (selector) */}
           <div className="mb-4">
             <label
               className="block text-gray-600 text-sm font-bold mb-2"
@@ -87,6 +110,7 @@ const ContactForm = () => {
               required
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-600 leading-tight focus:outline-none focus:shadow-outline"
             >
+              {/* Opciones del selector para diferentes servicios */}
               <option value="">Seleccione un servicio</option>
               <option value="consulting">Carta Natal</option>
               <option value="development">Sinastría</option>
@@ -95,7 +119,7 @@ const ContactForm = () => {
             </select>
           </div>
 
-          {/* Comment Field */}
+          {/* Campo de Comentario (área de texto) */}
           <div className="mb-4">
             <label
               className="block text-gray-600 text-sm font-bold mb-2"
@@ -113,7 +137,7 @@ const ContactForm = () => {
             ></textarea>
           </div>
 
-          {/* Phone Field */}
+          {/* Campo de Número de Teléfono (opcional) */}
           <div className="mb-4">
             <label
               className="block text-gray-600 text-sm font-bold mb-2"
@@ -131,7 +155,7 @@ const ContactForm = () => {
             />
           </div>
 
-          {/* Submit Button */}
+          {/* Botón de envío del formulario */}
           <div className="flex items-center justify-center">
             <button
               type="submit"
@@ -146,4 +170,5 @@ const ContactForm = () => {
   );
 };
 
+// Exporta el componente para que pueda ser utilizado en otras partes de la aplicación.
 export default ContactForm;
