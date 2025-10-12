@@ -3,67 +3,23 @@ import { useEffect, useState } from "react";
 // Importa la hoja de estilos CSS global de la aplicación.
 import "../App.css";
 // Importa el componente Card, que representa una carta individual en el juego.
-import Card from "../components/Card";
+import Card from "../components/Card.tsx";
 // Importa el componente TarotCarousel para mostrar un carrusel de información sobre el tarot.
-import TarotCarousel from "../components/TarotCarousel";
+import TarotCarousel from "../components/TarotCarousel.tsx";
 
 // --- Recursos de las cartas del Tarot (Mayor Arcanos) ---
 // Se importan las imágenes correspondientes a cada carta del Mayor Arcanos.
-import fool from "../assets/tarot/Fool.jpg";
-import magician from "../assets/tarot/Magician.jpg";
-import highPriestess from "../assets/tarot/HighPriestess.jpg";
-import empress from "../assets/tarot/Empress.jpg";
-import emperor from "../assets/tarot/Emperor.jpg";
-import hierophant from "../assets/tarot/Hierophant.jpg";
-import lovers from "../assets/tarot/Lovers.jpg";
-import chariot from "../assets/tarot/Chariot.jpg";
-import strength from "../assets/tarot/Strength.jpg";
-import hermit from "../assets/tarot/Hermit.png";
-import wheelOfFortune from "../assets/tarot/WheelOfFortune.jpg";
-import justice from "../assets/tarot/Justice.jpg";
-import hangedMan from "../assets/tarot/HangedMan.jpg";
-import death from "../assets/tarot/Death.jpg";
-import temperance from "../assets/tarot/Temperance.jpg";
-import devil from "../assets/tarot/Devil.jpg";
-import tower from "../assets/tarot/Tower.jpg";
-import star from "../assets/tarot/Star.png";
-import moon from "../assets/tarot/Moon.png";
-import sun from "../assets/tarot/Sun.jpg";
-import judgement from "../assets/tarot/Judgement.jpg";
-import world from "../assets/tarot/World.jpg";
+
 // Importa la imagen de fondo para la sección de banner.
 import tarot from "../assets/tarot-banner.jpg";
 
-// Define un array 'majorArcana' que contiene objetos para cada carta del Mayor Arcanos.
-// Cada objeto tiene el nombre de la carta y la ruta a su imagen.
-const majorArcana = [
-  { name: "The Fool", image: fool },
-  { name: "The Magician", image: magician },
-  { name: "The High Priestess", image: highPriestess },
-  { name: "The Empress", image: empress },
-  { name: "The Emperor", image: emperor },
-  { name: "The Hierophant", image: hierophant },
-  { name: "The Lovers", image: lovers },
-  { name: "The Chariot", image: chariot },
-  { name: "Strength", image: strength },
-  { name: "The Hermit", image: hermit },
-  { name: "Wheel of Fortune", image: wheelOfFortune },
-  { name: "Justice", image: justice },
-  { name: "The Hanged Man", image: hangedMan },
-  { name: "Death", image: death },
-  { name: "Temperance", image: temperance },
-  { name: "The Devil", image: devil },
-  { name: "The Tower", image: tower },
-  { name: "The Star", image: star },
-  { name: "The Moon", image: moon },
-  { name: "The Sun", image: sun },
-  { name: "Judgement", image: judgement },
-  { name: "The World", image: world }
-];
+// Importa el array de majorArcana
+import { majorArcana } from "../constants/constants";
+import { ITarotCards, IMajorArcanaCard } from "../types";
 
 // Función auxiliar para barajar un array (deck).
 // Utiliza el algoritmo de Fisher-Yates (implícito en sort con una función aleatoria).
-const shuffleDeck = (deck) => {
+const shuffleDeck = (deck: IMajorArcanaCard[]): IMajorArcanaCard[] => {
   // El método sort() con una función que retorna un número aleatorio
   // entre -0.5 y 0.5 efectivamente baraja los elementos del array.
   return deck.sort(() => Math.random() - 0.5);
@@ -73,10 +29,10 @@ const shuffleDeck = (deck) => {
 function Tarot() {
   // Estado para almacenar el mazo de cartas que se mostrarán y su estado (volteada/no volteada).
   // Inicialmente es un array vacío.
-  const [cards, setCards] = useState([]);
+  const [cards, setCards] = useState<ITarotCards[]>([]);
   // Estado para almacenar las cartas que han sido volteadas por el usuario.
   // Inicialmente es un array vacío.
-  const [flippedCards, setFlippedCards] = useState([]);
+  const [flippedCards, setFlippedCards] = useState<ITarotCards[]>([]);
 
   // useEffect hook para ejecutar código después de que el componente se monta en el DOM.
   useEffect(() => {
@@ -94,7 +50,7 @@ function Tarot() {
   }, []); // El array de dependencias vacío asegura que este efecto se ejecute solo una vez, al montar el componente.
 
   // Función manejadora que se ejecuta cuando se hace clic en una carta.
-  const handleCardClick = (clickedCard) => {
+  const handleCardClick = (clickedCard: ITarotCards) => {
     // Verifica si la carta ya está volteada o si ya se han seleccionado 3 cartas.
     // Si alguna de estas condiciones es verdadera, la función no hace nada más.
     if (clickedCard.flipped || flippedCards.length >= 3) return;

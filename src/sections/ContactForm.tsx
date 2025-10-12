@@ -1,11 +1,12 @@
 // Importa el hook 'useState' de React para gestionar el estado del componente.
 import React, { useState } from "react";
+import { IFormData } from "../types";
 
 // Define el componente funcional 'ContactForm'.
-const ContactForm = () => {
+const ContactForm: React.FC = () => {
   // Utiliza 'useState' para crear el estado 'formData', que almacenará los valores del formulario.
   // Se inicializa con un objeto que tiene propiedades para cada campo del formulario.
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<IFormData>({
     name: "",
     email: "",
     service: "",
@@ -15,7 +16,7 @@ const ContactForm = () => {
 
   // Define la función 'handleChange' para actualizar el estado cuando cambian los campos del formulario.
   // Recibe el evento del cambio como argumento.
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
     // Desestructura 'name' y 'value' del objeto 'e.target' (el elemento que disparó el evento).
     const { name, value } = e.target;
     // Actualiza el estado 'formData' utilizando el operador de propagación (...) para mantener los
@@ -28,7 +29,7 @@ const ContactForm = () => {
 
   // Define la función 'handleSubmit' para manejar el envío del formulario.
   // Recibe el evento de envío como argumento.
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     // 'e.preventDefault()' evita que la página se recargue, que es el comportamiento por defecto de un formulario.
     e.preventDefault();
     // Muestra los datos del formulario en la consola para depuración. En una aplicación real, aquí se enviarían los datos a un servidor.

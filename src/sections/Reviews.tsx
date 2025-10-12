@@ -1,14 +1,14 @@
 // Importa React, necesario para crear componentes de React.
 import React from 'react';
 // Importa el array 'reviews' desde el archivo de constantes. Este array contiene los datos de las reseñas.
-import { reviews } from '../constants';
+import { reviews } from '../constants/constants';
 // Importa una imagen de perfil de ejemplo (aunque no se utiliza en el código actual).
-import prof_pic_1 from '../assets/prof_pic1.jpg';
+import { IReviewInfo } from '../types';
 
 
 // Define el componente funcional 'Reviews'.
 // Este componente se encarga de mostrar una sección de reseñas de clientes.
-export default function Reviews() {
+const Reviews: React.FC = () => {
   // El componente retorna una sección de la página web.
   return (
     // La etiqueta <section> define una sección temática independiente en la página.
@@ -27,7 +27,7 @@ export default function Reviews() {
           {/* Se utiliza el método 'map' para iterar sobre el array 'reviews'. */}
           {/* Por cada elemento 'item' en el array 'reviews', se renderiza un bloque de reseña. */}
           {
-          reviews.map((item) => (
+          reviews.map((item: IReviewInfo) => (
           /* Cada tarjeta de reseña se envuelve en un div. La prop 'key' es esencial para que React pueda identificar de forma única cada elemento en la lista renderizada, lo que optimiza las actualizaciones. */
           <div key={item.id}>
             {/* Contenedor para la información del autor de la reseña: su imagen y su nombre/fecha. */}
@@ -59,3 +59,5 @@ export default function Reviews() {
     </section>
   )
 }
+
+export default Reviews;

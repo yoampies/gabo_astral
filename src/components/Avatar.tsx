@@ -1,10 +1,12 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import { useGLTF } from '@react-three/drei'
 import avatarScene from '../assets/models/avatar.glb';
+import { IAvatarProps, GLTFResult } from '../types';
 
 
-export default function Avatar(props) {
-  const { nodes, materials } = useGLTF(avatarScene)
+const Avatar: React.FC<IAvatarProps> = (props) => {
+  const { nodes, materials } = useGLTF(avatarScene) as unknown as GLTFResult
+
   return (
     <group {...props} dispose={null}>
       <primitive object={nodes.Hips} />
@@ -65,3 +67,5 @@ export default function Avatar(props) {
 }
 
 useGLTF.preload(avatarScene)
+
+export default Avatar;

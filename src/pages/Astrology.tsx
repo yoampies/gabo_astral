@@ -3,13 +3,14 @@ import React from "react";
 // Importa datos de 'astrology' desde un archivo de constantes.
 // Se espera que 'astrology' sea un array de objetos, donde cada objeto
 // representa una sección o carta de astrología con propiedades como 'image', 'title', y 'text'.
-import { astrology } from '../constants'
+import { astrology } from "../constants/constants";
+import { IAstrologyInfo } from "../types";
 // Importa una imagen llamada 'nightsky' desde la carpeta de assets.
 // Esta imagen se utilizará como fondo para la sección del banner.
 import nightsky from '../assets/nightsky.jpg'
 
 // Define el componente funcional 'Astrology'.
-const Astrology = () => {
+const Astrology: React.FC = () => {
 
   // El componente retorna la estructura JSX que se renderizará en el DOM.
   return (
@@ -52,7 +53,7 @@ const Astrology = () => {
           un espaciado de 8 unidades entre elementos, y un ancho del 9/12 de la ventana. */}
       <div className="container mx-auto mt-12 px-6 grid grid-cols-1 gap-8 w-9/12">
         {/* Mapeo sobre el array 'astrology' para renderizar cada elemento (carta/sección). */}
-        {astrology.map((card, index) => (
+        {astrology.map((card: IAstrologyInfo, index) => (
           // Cada elemento se renderiza como un div. Se usa una clave única para cada elemento del mapa.
           <div
             key={index}

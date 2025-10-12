@@ -8,11 +8,12 @@ import Dashboard from '../sections/Dashboard'
 import Events from '../sections/Events'
 import Reviews from '../sections/Reviews'
 import Footer from '../sections/Footer'
+import React from 'react'
 
 
 // Define el componente funcional 'Home'.
 // Los componentes funcionales son la forma moderna de escribir componentes en React.
-function Home() {
+const Home: React.FC = () => {
 
   // El método 'return' de un componente funcional devuelve el JSX que se renderizará en la interfaz de usuario.
   return (
@@ -27,9 +28,6 @@ function Home() {
       <Events />
       {/* Renderiza el componente Reviews. Esta sección aparecerá debajo de Events. */}
       <Reviews />
-      {/* Renderiza el componente Footer. Este será el pie de página que aparece al final de la página. */}
-      {/* Nota: El componente Footer no está incluido en el return, lo que podría ser un error o una omisión intencionada.
-          Si se desea que aparezca, debería añadirse dentro del div principal. */}
     </div>
   )
 }

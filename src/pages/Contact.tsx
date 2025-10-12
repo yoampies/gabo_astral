@@ -1,5 +1,6 @@
 // Importa el componente Astrogabo desde la ubicación ../sections/Astrogabo.
 // Este componente contiene elementos relacionados con la astrología o un experto llamado Astrogabo.
+import React from "react"
 import Astrogabo from "../sections/Astrogabo"
 
 // Importa el componente ContactForm desde la ubicación ../sections/ContactForm.
@@ -8,7 +9,7 @@ import ContactForm from "../sections/ContactForm"
 
 // Define el componente funcional principal llamado "Contact".
 // Este componente actúa como una página o sección de contacto.
-export default function Contact() {
+const Contact: React.FC = () => {
   // La función render() del componente retorna la estructura JSX que se mostrará.
   return (
     // Un div principal que envuelve todo el contenido de la página de contacto.
@@ -33,3 +34,5 @@ export default function Contact() {
     </div>
   )
 }
+
+export default Contact;

@@ -7,7 +7,7 @@ import mercury from '../assets/mercury.png';
 
 // Define el componente funcional 'Events'.
 // Los componentes funcionales son la forma recomendada de escribir componentes en React.
-export default function Events() {
+const Events: React.FC = () => {
   // El componente retorna la estructura JSX que se renderizará en la interfaz de usuario.
   return (
     // Define una sección HTML (<section>) con un ID 'eventsID' y un contenedor principal que utiliza clases de Tailwind CSS
@@ -76,3 +76,5 @@ export default function Events() {
     </section>
   )
 }
+
+export default Events;

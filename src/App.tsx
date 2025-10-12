@@ -9,19 +9,19 @@ import Home from "./pages/Home";
 import Tarot from "./pages/Tarot";
 import Astrology from "./pages/Astrology";
 import Contact from "./pages/Contact";
+import React from "react"
 
-
-function App() {
+const App: React.FC = () => {
 
   return (
     <div className='bg-gradient-to-b from-black to-[#0b0b22] from-30%'>
       <Router>
         <Navbar />
         <Routes>
-          <Route exact path="/" element={<Home />} />  
-          <Route exact path="/tarot" element={<Tarot />} />  
-          <Route exact path="/astrologia" element={<Astrology />} />  
-          <Route exact path="/contacto" element={<Contact />} />  
+          <Route path="/" element={<Home />} />  
+          <Route path="/tarot" element={<Tarot />} />  
+          <Route path="/astrologia" element={<Astrology />} />  
+          <Route path="/contacto" element={<Contact />} />  
         </Routes>
         <Footer />
       </Router>

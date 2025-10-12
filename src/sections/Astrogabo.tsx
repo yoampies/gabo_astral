@@ -11,9 +11,10 @@ import astrology from "../assets/astrology.png";
 import love from "../assets/love.png";
 import travel from "../assets/travel.png";
 import tarot from "../assets/tarot.png";
+import React from "react";
 
 // Define el componente funcional 'Astrogabo'.
-export default function Astrogabo() {
+const Astrogabo: React.FC = () => {
   // El componente retorna una estructura JSX que representa la interfaz de usuario.
   return (
     // Un div principal que actúa como contenedor para la sección.
@@ -142,3 +143,5 @@ export default function Astrogabo() {
     </div>
   );
 }
+
+export default Astrogabo;

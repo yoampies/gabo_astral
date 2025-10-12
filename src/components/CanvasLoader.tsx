@@ -2,11 +2,12 @@
 // 'Html' permite renderizar elementos HTML dentro del canvas de Three.js.
 // 'useProgress' es un hook que proporciona el estado de carga de los recursos.
 import { Html, useProgress } from '@react-three/drei';
+import React from 'react';
 
 // Define un componente funcional llamado CanvasLoader.
 // Este componente se encarga de mostrar un indicador de carga mientras
 // los recursos del canvas 3D se están cargando.
-export default function CanvasLoader() {
+const CanvasLoader: React.FC = () => {
   // Utiliza el hook useProgress para obtener el progreso de la carga.
   // 'progress' es un número entre 0 y 100 que representa el porcentaje de carga.
   // Se desestructura directamente para acceder a la propiedad 'progress'.
@@ -51,3 +52,5 @@ export default function CanvasLoader() {
     </Html>
   ) : null; // Si progress es 100 o más, no renderiza nada (el loader desaparece).
 }
+
+export default CanvasLoader;

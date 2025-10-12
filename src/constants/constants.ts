@@ -1,4 +1,4 @@
-import prof_pic_1 from '../assets/prof_pic1.jpg';
+import prof_pic_1 from "../assets/prof_pic1.jpg";
 import prof_pic_2 from '../assets/prof_pic2.jpg';
 import prof_pic_3 from '../assets/prof_pic3.jpg';
 import soul from '../assets/soul.jpg';
@@ -9,8 +9,34 @@ import synastry from '../assets/synastry.jpg';
 import solarreturn from '../assets/solar-return.jpg';
 import other from '../assets/other.jpg';
 
+//Interface imports
+import { IMajorArcanaCard, INavLinks, ISlidesInfo, IReviewInfo, IAstrologyInfo } from '../types';
 
-export const navLinks = [
+//Major arcana imports
+import fool from "../assets/tarot/Fool.jpg";
+import magician from "../assets/tarot/Magician.jpg";
+import highPriestess from "../assets/tarot/HighPriestess.jpg";
+import empress from "../assets/tarot/Empress.jpg";
+import emperor from "../assets/tarot/Emperor.jpg";
+import hierophant from "../assets/tarot/Hierophant.jpg";
+import lovers from "../assets/tarot/Lovers.jpg";
+import chariot from "../assets/tarot/Chariot.jpg";
+import strength from "../assets/tarot/Strength.jpg";
+import hermit from "../assets/tarot/Hermit.png";
+import wheelOfFortune from "../assets/tarot/WheelOfFortune.jpg";
+import justice from "../assets/tarot/Justice.jpg";
+import hangedMan from "../assets/tarot/HangedMan.jpg";
+import death from "../assets/tarot/Death.jpg";
+import temperance from "../assets/tarot/Temperance.jpg";
+import devil from "../assets/tarot/Devil.jpg";
+import tower from "../assets/tarot/Tower.jpg";
+import star from "../assets/tarot/Star.png";
+import moon from "../assets/tarot/Moon.png";
+import sun from "../assets/tarot/Sun.jpg";
+import judgement from "../assets/tarot/Judgement.jpg";
+import world from "../assets/tarot/World.jpg";
+
+export const navLinks: INavLinks[] = [
     {
         id: 1,
         name: 'Tarot',
@@ -28,7 +54,7 @@ export const navLinks = [
     }
 ];
 
-export const reviews = [
+export const reviews: IReviewInfo[] = [
     {
         id: 1,
         img: prof_pic_1,
@@ -58,7 +84,7 @@ export const reviews = [
     },
 ];
 
-export const slides = [
+export const slides: ISlidesInfo[] = [
     {
       title: 'Descubre los secretos de tu alma con el Tarot',
       text: 'El Tarot es mucho más que un simple juego de cartas. Es una herramienta ancestral que te conecta con tu sabiduría interior, revelando patrones, oportunidades y desafíos que se esconden en tu subconsciente. A través de símbolos poderosos y mensajes profundos, el Tarot te guía hacia un mayor autoconocimiento y te empodera para tomar decisiones más acertadas.',
@@ -76,7 +102,7 @@ export const slides = [
     },
   ];
 
-  export const astrology = [
+  export const astrology: IAstrologyInfo[] = [
     {
       title: "¿Qué es una Carta Natal?",
       text: `Tu carta natal es un retrato astrológico único que se crea en el momento exacto de tu nacimiento. 
@@ -103,3 +129,29 @@ export const slides = [
       image: other,
     },
   ];
+
+  export const majorArcana: IMajorArcanaCard[] = [
+    { name: "The Fool", image: fool },
+    { name: "The Magician", image: magician },
+    { name: "The High Priestess", image: highPriestess },
+    { name: "The Empress", image: empress },
+    { name: "The Emperor", image: emperor },
+    { name: "The Hierophant", image: hierophant },
+    { name: "The Lovers", image: lovers },
+    { name: "The Chariot", image: chariot },
+    { name: "Strength", image: strength },
+    { name: "The Hermit", image: hermit },
+    { name: "Wheel of Fortune", image: wheelOfFortune },
+    { name: "Justice", image: justice },
+    { name: "The Hanged Man", image: hangedMan },
+    { name: "Death", image: death },
+    { name: "Temperance", image: temperance },
+    { name: "The Devil", image: devil },
+    { name: "The Tower", image: tower },
+    { name: "The Star", image: star },
+    { name: "The Moon", image: moon },
+    { name: "The Sun", image: sun },
+    { name: "Judgement", image: judgement },
+    { name: "The World", image: world }
+  ];
+  

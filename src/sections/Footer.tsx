@@ -1,15 +1,17 @@
-import { navLinks } from "../constants";
+import { navLinks } from "../constants/constants";
+import React from "react";
+import { INavLinks } from "../types";
 import instagram from "../assets/instagram.png";
 import x from "../assets/x.png";
 import gmail from "../assets/gmail.png";
 
-export default function Footer() {
+const Footer: React.FC = () => {
   return (
     <footer>
       <hr className="bg-slate-600 border-0 h-px my-8 w-10/12 mx-auto"/>
       <div className='flex mx-auto w-6/12 justify-between text-gray-400 font-semibold'>
       {
-        navLinks.map((item) => (
+        navLinks.map((item: INavLinks) => (
             <div key={item.id}>
                 <a href={item.href} className="hover:text-white hover:duration-150">
                   {item.name}
@@ -26,3 +28,5 @@ export default function Footer() {
     </footer>
   )
 }
+
+export default Footer;

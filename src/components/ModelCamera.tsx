@@ -2,12 +2,14 @@
 import { useRef } from "react"; // useRef se usa para crear referencias mutables que persisten entre renders.
 import { useFrame } from "@react-three/fiber"; // useFrame es un hook que permite ejecutar código en cada frame del renderizado.
 import { easing } from 'maath'; // 'easing' proporciona funciones de interpolación suavizada para animaciones.
+import { IModelCameraProps } from "../types";
+import { Group } from "three";
 
 // Define un componente funcional llamado ModelCamera.
 // Recibe 'children' (elementos que se renderizarán dentro del grupo) e 'isMobile' (un booleano para detectar si es un dispositivo móvil).
-export default function ModelCamera({ children, isMobile }) {
+const ModelCamera: React.FC<IModelCameraProps> = ({ isMobile, children }) => {
     // Crea una referencia mutable 'groupRef' usando useRef. Esta referencia se adjuntará al elemento <group>.
-    const groupRef = useRef();
+    const groupRef = useRef<Group | null>(null);
 
     // Utiliza el hook useFrame para ejecutar una función en cada frame del ciclo de renderizado de la escena 3D.
     // 'state' contiene el estado actual de la escena (cámara, puntero, etc.), y 'delta' es el tiempo transcurrido desde el último frame.
@@ -31,7 +33,9 @@ export default function ModelCamera({ children, isMobile }) {
             //   - '0': Rotación en Z se mantiene en 0.
             // - '0.25': El factor de amortiguación.
             // - 'delta': El tiempo transcurrido.
-            easing.dampE(groupRef.current.rotation, [state.pointer.y / 8, -state.pointer.x / 5, 0], 0.25, delta);
+            if(groupRef.current !== null) {
+                easing.dampE(groupRef.current.rotation, [state.pointer.y / 8, -state.pointer.x / 5, 0], 0.25, delta);
+            }
         }
     });
 
@@ -42,3 +46,5 @@ export default function ModelCamera({ children, isMobile }) {
         <group ref={groupRef}>{children}</group>
     );
 }
+
+export default ModelCamera;

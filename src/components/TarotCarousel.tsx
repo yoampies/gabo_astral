@@ -1,16 +1,17 @@
 // Importación de las 'slides' (un array de objetos con datos para cada diapositiva) desde un archivo de constantes.
-import { slides } from '../constants';
+import { slides } from '../constants/constants';
+import { ISlidesInfo } from '../types';
 // Importación de React y los hooks useState y useEffect para gestionar el estado y los efectos secundarios del componente.
 import React, { useState, useEffect } from 'react';
 
 // Definición del componente funcional TarotCarousel.
-const TarotCarousel = () => {
+const TarotCarousel: React.FC = () => {
 
   // useState hook para mantener el estado de la diapositiva actual.
   // 'currentSlide' es la variable de estado que almacena el índice de la diapositiva visible.
   // 'setCurrentSlide' es la función para actualizar el estado.
   // Se inicializa en 0, mostrando la primera diapositiva al principio.
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState<number>(0);
 
   // useEffect hook para manejar efectos secundarios. En este caso, se usa para configurar un intervalo
   // que avanza automáticamente las diapositivas cada cierto tiempo.
@@ -74,7 +75,7 @@ const TarotCarousel = () => {
           style={{ transform: `translateX(-${currentSlide * 100}%)` }}
         >
           {/* Mapea sobre el array 'slides' para renderizar cada diapositiva. */}
-          {slides.map((slide, index) => (
+          {slides.map((slide: ISlidesInfo, index) => (
             // Cada diapositiva es un div con una clave única ('key={index}').
             // 'min-w-full' asegura que cada diapositiva ocupe todo el ancho del contenedor padre.
             // El fondo es '#1c1c3a' (un azul oscuro) y el texto es blanco.

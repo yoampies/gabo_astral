@@ -1,6 +1,8 @@
-import { navLinks } from '../constants';
+import { navLinks } from '../constants/constants';
+import { INavLinks } from '../types';
+import React from 'react';
 
-export default function Navbar() {
+const Navbar: React.FC = () => {
   return (
     <nav className="p-4 mx-12">
         <div className="container mx-auto flex justify-between items-center text-md text-gray-400 font-semibold">
@@ -12,7 +14,7 @@ export default function Navbar() {
             {/*NavLinks*/}
             <ul className="flex justify-between gap-8 mr-2">
                 {
-                    navLinks.map((item) => (
+                    navLinks.map((item: INavLinks) => (
                         <div key={item.id}>
                             <a href={item.href}>
                                 <li className="hover:text-white hover:duration-150">
@@ -28,3 +30,5 @@ export default function Navbar() {
     </nav>
   )
 }
+
+export default Navbar;

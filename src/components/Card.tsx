@@ -1,13 +1,14 @@
 // Importa el hook useState para manejar el estado interno del componente, si fuera necesario.
 // En este caso, no se usa directamente en Card, pero es común en componentes React.
 import React from 'react';
+import { ICardProps } from '../types';
 
 // Define el componente funcional 'Card'.
 // Recibe tres props:
 // - card: Un objeto que contiene la información de la carta (ej. imagen, nombre).
 // - onClick: Una función que se ejecutará cuando se haga clic en la carta.
 // - isFlipped: Un booleano que indica si la carta está volteada (true) o no (false).
-const Card = ({ card, onClick, isFlipped }) => {
+const Card = ({ card, onClick, isFlipped }: ICardProps) => {
   // Retorna la estructura JSX que representa la carta.
   return (
     // Contenedor principal de la carta.
