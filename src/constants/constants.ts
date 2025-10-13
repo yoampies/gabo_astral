@@ -155,3 +155,8 @@ export const slides: ISlidesInfo[] = [
     { name: "The World", image: world }
   ];
   
+  export const spread_times: string[] = [
+    "Lo que pasó",
+    "Lo que está pasando",
+    "Lo que puede pasar"
+  ]

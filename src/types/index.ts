@@ -98,3 +98,7 @@ export interface IModelNodes {
 export interface IStarProps {
     position: [number, number, number];
 }
+
+export interface IStarIntersectionManagerProps {
+    starPositions: [number, number, number][];
+}

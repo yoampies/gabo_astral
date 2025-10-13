@@ -1,63 +1,77 @@
-/* Parent Card Container */
-.card {
-  perspective: 1000px; /* Creates the 3D effect for the rotation */
-}
+/*
+  ===================================================================
+  ESTILOS GLOBALES - App.css (Simplificado para el 3D Flip)
+  ===================================================================
+*/
 
-/* Inner Card Styling */
-.card .inner-card {
+/* --- 1. Contenedor de la Carta (.card-container) --- */
+/*
+  NOTA: La perspectiva 3D se aplica en Card.tsx con la utilidad
+  Tailwind [perspective:1000px] en este div. Solo necesitamos la posición.
+*/
+.card-container {
   position: relative;
-  transform-style: preserve-3d; /* Ensures both sides remain in 3D space */
-  transition: transform 0.6s ease-in-out, opacity 0.2s ease-in-out, border-color 0.2s ease-in-out; /* Smooth flip animation */
-  border: 1px solid rgb(255, 255, 255, 0.2); /* Add white border */
-  border-radius: 0.75rem;
+  cursor: pointer;
 }
 
-/* Flipped State */
-.card.flipped .inner-card {
-  transform: rotateY(180deg); /* Rotate when flipped */
-  border-color: transparent; /* Border disappears when flipped */
+/* --- 2. Contenedor Interno (El que GIRA) --- */
+.inner-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* Define el espacio 3D para que las caras se superpongan y giren */
+  transform-style: preserve-3d;
+  /* Transición CSS para el volteo suave */
+  transition: transform 0.6s ease-in-out;
 }
 
-/* Common Styles for Front and Back Faces */
-.card .inner-card > * {
+/* --- 3. Estado Volteado --- */
+/* Esta clase se aplica condicionalmente por React (inner-card.is-flipped) */
+.inner-card.is-flipped {
+  transform: rotateY(180deg);
+}
+
+/* --- 4. Estilos Comunes para las Caras --- */
+.card-face {
   position: absolute;
   width: 100%;
   height: 100%;
-  backface-visibility: hidden; /* Hides the backface when not visible */
-  transition: opacity 0.2s ease-in-out; /* Smooth fade effect */
+  /* CRÍTICO: Oculta el reverso del elemento al girar */
+  backface-visibility: hidden;
+  border-radius: 0.75rem;
+  /* El borde se define aquí para que sea consistente */
+  border: 1px solid rgba(255, 255, 255, 0.2); 
 }
 
-/* Front Face (Default State) */
-.card .inner-card > .bg-indigo-800 {
-  transform: rotateY(0deg); /* Default orientation for the front side */
-  z-index: 2;
-  opacity: 1; /* Front face is visible by default */
+/* --- 5. Cara Frontal (La Imagen) --- */
+/* Pre-rotamos 180 grados para que inicie mirando hacia atrás (oculta) */
+.card-front {
+  transform: rotateY(180deg);
 }
 
-/* Back Face (Hidden by Default) */
-.card .inner-card > img {
-  transform: rotateY(180deg); /* Back side rotated initially */
-  z-index: 1;
-  opacity: 0; /* Start hidden */
-  transition-delay: 0.2s; /* Back face fades in after the rotation starts */
+/* --- 6. Cara Trasera (El Dorso Negro) --- */
+/* Por defecto, inicia a 0 grados (mirando al frente) */
+.card-back {
+  transform: rotateY(0deg);
+  /* Asegura que el color de fondo se mantiene */
+  background-color: #000; 
 }
 
-/* Flipped State (Back Face Appears) */
-.card.flipped .inner-card > img {
-  opacity: 1; /* Make the back face visible */
-}
 
-.card.flipped .inner-card > .bg-indigo-800 {
-  opacity: 0; /* Hide the front face */
-  transition-delay: 0.2s; /* Front face fades out after the flip begins */
-}
+/*
+  ===================================================================
+  ESTILOS DE LA INTERFAZ (Board, Loader, etc.)
+  ===================================================================
+*/
 
 /* Game Board Styling */
 .game-board {
   position: relative;
-  max-width: 600px;
+  /* Ajusta max-width según tu layout final en Tarot.tsx */
+  /* max-width: 600px; */ 
 }
 
+/* Canvas Loader (Mantener si es necesario) */
 .canvas-loader {
   width: 50px;
   height: 50px;

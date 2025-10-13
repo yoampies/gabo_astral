@@ -4,7 +4,7 @@
 // - useMediaQuery de 'react-responsive': Hook para detectar si la pantalla cumple con ciertos criterios de medios (ej. ancho máximo).
 import { Canvas } from '@react-three/fiber';
 import { EffectComposer, Bloom, ToneMapping } from '@react-three/postprocessing';
-import { PerspectiveCamera } from '@react-three/drei';
+import { PerspectiveCamera, Instances } from '@react-three/drei';
 import { useMediaQuery } from 'react-responsive';
 
 // Componentes personalizados importados:
@@ -14,9 +14,9 @@ import { useMediaQuery } from 'react-responsive';
 import Model from '../components/Model.tsx';
 import ModelCamera from '../components/ModelCamera';
 import CanvasLoader from '../components/CanvasLoader';
-import Star from '../components/Star.tsx';
 
 import React from 'react';
+import StarInteractionManager from '../components/StarInteractionManager.tsx';
 
 // Definición del componente funcional 'Dashboard'.
 // Este componente es responsable de configurar y renderizar la escena 3D principal.
@@ -71,21 +71,14 @@ const Dashboard: React.FC = () => {
           {/* Utiliza el componente ModelCamera para envolver la lógica de la cámara y el modelo.
             - isMobile={isMobile}: Le pasa la información sobre si se está viendo en un dispositivo móvil. */}
           <EffectComposer>
-            <ToneMapping />
-            <Bloom 
-              mipmapBlur
-              intensity={5.0}
-              luminanceThreshold={0.9}
-              luminanceSmoothing={0.15}
-            />
-            <>
-              {starPositions.map((position, index) => (
-                <Star 
-                    key={index} // Se necesita una clave única para la lista
-                    position={position} // Aquí 'position' es el array [x, y, z]
-                />
-              ))}
-            </>
+              <ToneMapping />
+              <Bloom 
+                mipmapBlur
+                intensity={5.0}
+                luminanceThreshold={0.9}
+                luminanceSmoothing={0.15}
+              />
+              <StarInteractionManager starPositions={starPositions}/>
             <ModelCamera isMobile={isMobile}>
               {/* Renderiza el componente Model.
                 - scale={0.01}: Escala el modelo a un tamaño pequeño.

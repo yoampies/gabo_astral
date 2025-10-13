@@ -14,7 +14,7 @@ import TarotCarousel from "../components/TarotCarousel.tsx";
 import tarot from "../assets/tarot-banner.jpg";
 
 // Importa el array de majorArcana
-import { majorArcana } from "../constants/constants";
+import { majorArcana, spread_times } from "../constants/constants";
 import { ITarotCards, IMajorArcanaCard } from "../types";
 
 // Función auxiliar para barajar un array (deck).
@@ -38,10 +38,12 @@ function Tarot() {
   useEffect(() => {
     // Baraja el mazo de 'majorArcana'.
     const shuffledDeck = shuffleDeck(majorArcana);
+
+    const partedDeck = shuffledDeck.slice(0, 10)
     // Actualiza el estado 'cards' con el mazo barajado.
     // Cada carta se mapea para añadirle un 'id' único y establecer su estado inicial 'flipped' a false.
     setCards(
-      shuffledDeck.map((card, index) => ({
+      partedDeck.map((card, index) => ({
         ...card, // Copia las propiedades existentes de la carta (name, image).
         id: index, // Asigna un ID único basado en su índice en el mazo barajado.
         flipped: false, // Inicializa la propiedad 'flipped' como falsa (la carta está boca abajo).
@@ -138,20 +140,21 @@ function Tarot() {
             {/* Título para las cartas seleccionadas. */}
             <h1 className="text-4xl font-bold">Cartas elegidas</h1>
             {/* Contenedor para mostrar las imágenes de las 3 cartas seleccionadas. */}
-            <div className="mt-6 flex grid-cols-3 gap-6">
+            <div className="mt-2 flex grid-cols-3 gap-6">
               {/* Mapea sobre el array 'flippedCards' para mostrar cada carta seleccionada. */}
-              {flippedCards.map((card) => (
+              {flippedCards.map((card, index) => (
                 <div className="col-span-1 h-64 w-48"> {/* Define el tamaño para cada imagen de carta */}
+                  <h3 className="text-xl font-semibold mb-2 text-yellow-300">
+                    {spread_times[index]}
+                  </h3>
                   <img src={card.image} className="rounded-xl" alt={card.name} /> {/* Muestra la imagen de la carta */}
                 </div>
               ))}
             </div>
             {/* Mensaje para invitar al usuario a contactar para más información. */}
-            <div>
-              <p className="text-white mt-20">
-                Si quieres saber más acerca del significado de estas cartas, contáctanos!
-              </p>
-            </div>
+            <p className="text-white mt-28">
+              Si quieres saber más acerca del significado de estas cartas, contáctanos!
+            </p>
             {/* Botón para recargar la página y permitir una nueva lectura. */}
             <button
               className="bg-violet-500 px-4 py-2 rounded-lg text-white"
