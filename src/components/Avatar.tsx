@@ -1,11 +1,13 @@
-import React from 'react'
-import { useGLTF } from '@react-three/drei'
+import React from 'react';
+import { useGLTF } from '@react-three/drei';
 import avatarScene from '../assets/models/avatar.glb';
 import { IAvatarProps, GLTFResult } from '../types';
 
-
 const Avatar: React.FC<IAvatarProps> = (props) => {
-  const { nodes, materials } = useGLTF(avatarScene) as unknown as GLTFResult
+  const { nodes, materials } = useGLTF(
+    avatarScene,
+    true
+  ) as unknown as GLTFResult;
 
   return (
     <group {...props} dispose={null}>
@@ -63,9 +65,9 @@ const Avatar: React.FC<IAvatarProps> = (props) => {
         skeleton={nodes.Wolf3D_Body.skeleton}
       />
     </group>
-  )
-}
+  );
+};
 
-useGLTF.preload(avatarScene)
+useGLTF.preload(avatarScene, true);
 
 export default Avatar;

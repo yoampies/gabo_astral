@@ -1,20 +1,25 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { useGLTF } from '@react-three/drei';
 import scene from '../assets/models/scene.glb';
-import { IModelProps, GLTFResult, IModelNodes } from '../types'; 
-import { Group, Mesh, Bone, Material } from 'three'; 
-import * as THREE from "three"
+import { IModelProps, GLTFResult, IModelNodes } from '../types';
+import { Mesh } from 'three';
+import * as THREE from 'three';
 
 const Model: React.FC<IModelProps> = (props) => {
-    const gltf = useGLTF(scene) as unknown as GLTFResult; 
-    const { nodes, materials } = gltf;
-    const typedNodes = nodes as unknown as IModelNodes; 
-    const typedMaterials = materials as Record<string, THREE.Material>;
+  const gltf = useGLTF(scene, true) as unknown as GLTFResult;
+
+  const { nodes, materials } = gltf;
+  const typedNodes = nodes as unknown as IModelNodes;
+  const typedMaterials = materials as Record<string, THREE.Material>;
 
   return (
     <group {...props} dispose={null}>
-      <group position={[27.796, -36.44, 5.124]} rotation={[0.049, -0.085, 0.005]} scale={1.757}>
-        <primitive object={typedNodes._rootJoint} /> 
+      <group
+        position={[27.796, -36.44, 5.124]}
+        rotation={[0.049, -0.085, 0.005]}
+        scale={1.757}
+      >
+        <primitive object={typedNodes._rootJoint} />
         <mesh
           castShadow
           receiveShadow
@@ -342,7 +347,9 @@ const Model: React.FC<IModelProps> = (props) => {
         <mesh
           castShadow
           receiveShadow
-          geometry={(typedNodes.shoe_stocking_shoe_stocking1_0 as Mesh).geometry}
+          geometry={
+            (typedNodes.shoe_stocking_shoe_stocking1_0 as Mesh).geometry
+          }
           material={typedMaterials.shoe_stocking1}
         />
         <mesh
@@ -618,13 +625,17 @@ const Model: React.FC<IModelProps> = (props) => {
         <mesh
           castShadow
           receiveShadow
-          geometry={(typedNodes.lower_eyelash_SUBS_eyelashes_0 as Mesh).geometry}
+          geometry={
+            (typedNodes.lower_eyelash_SUBS_eyelashes_0 as Mesh).geometry
+          }
           material={typedMaterials.SUBS_eyelashes}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={(typedNodes.upper_eyelashes_SUBS_eyelashes_0 as Mesh).geometry}
+          geometry={
+            (typedNodes.upper_eyelashes_SUBS_eyelashes_0 as Mesh).geometry
+          }
           material={typedMaterials.SUBS_eyelashes}
         />
         <mesh
@@ -848,13 +859,17 @@ const Model: React.FC<IModelProps> = (props) => {
       <mesh
         castShadow
         receiveShadow
-        geometry={(typedNodes.R_heart_stocking_Throne_handles_0 as Mesh).geometry}
+        geometry={
+          (typedNodes.R_heart_stocking_Throne_handles_0 as Mesh).geometry
+        }
         material={typedMaterials.Throne_handles}
       />
       <mesh
         castShadow
         receiveShadow
-        geometry={(typedNodes.L_heart_stocking_Throne_handles_0 as Mesh).geometry}
+        geometry={
+          (typedNodes.L_heart_stocking_Throne_handles_0 as Mesh).geometry
+        }
         material={typedMaterials.Throne_handles}
       />
       <mesh
@@ -884,7 +899,9 @@ const Model: React.FC<IModelProps> = (props) => {
       <mesh
         castShadow
         receiveShadow
-        geometry={(typedNodes.back_cushion_throne_throne_cushion_0 as Mesh).geometry}
+        geometry={
+          (typedNodes.back_cushion_throne_throne_cushion_0 as Mesh).geometry
+        }
         material={typedMaterials.throne_cushion}
       />
       <mesh
@@ -1113,9 +1130,9 @@ const Model: React.FC<IModelProps> = (props) => {
         material={typedMaterials.trees1}
       />
     </group>
-  )
-}
+  );
+};
 
-useGLTF.preload(scene)
+useGLTF.preload(scene, true);
 
 export default Model;
