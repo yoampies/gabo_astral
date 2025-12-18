@@ -35,6 +35,24 @@ const getNewDeck = () => {
 
 // Define el componente funcional principal 'Tarot'.
 function Tarot() {
+  const tarotReducer = (
+    state: ITarotState,
+    action: TarotAction
+  ): ITarotState => {
+    switch (action.type) {
+      case 'START_SELECTION':
+        return { status: 'SELECTING' };
+      case 'SHOW_RESULT':
+        return { status: 'RESULT' };
+      case 'RESET_GAME':
+        return { status: 'SHUFFLING' };
+      default:
+        return state;
+    }
+  };
+
+  const [gameState, dispatch] = useReducer(tarotReducer, initialState);
+
   // Estado para almacenar el mazo de cartas que se mostrarán y su estado (volteada/no volteada).
   // Inicialmente es un array vacío.
   const [cards, setCards] = useState<ITarotCards[]>([]);
@@ -44,9 +62,11 @@ function Tarot() {
 
   // useEffect hook para ejecutar código después de que el componente se monta en el DOM.
   useEffect(() => {
-    setCards(getNewDeck());
-    dispatch({ type: 'START_SELECTION' });
-  }, []); // El array de dependencias vacío asegura que este efecto se ejecute solo una vez, al montar el componente.
+    if (gameState.status === 'SHUFFLING') {
+      setCards(getNewDeck());
+      dispatch({ type: 'START_SELECTION' });
+    }
+  }, [gameState.status]);
 
   // Función manejadora que se ejecuta cuando se hace clic en una carta.
   const handleCardClick = (clickedCard: ITarotCards) => {
@@ -66,7 +86,12 @@ function Tarot() {
     );
 
     // Agrega la carta clickeada (ya volteada) al array 'flippedCards'.
-    setFlippedCards([...flippedCards, clickedCard]);
+    const newFlippedCards = [...flippedCards, clickedCard];
+    setFlippedCards(newFlippedCards);
+
+    if (newFlippedCards.length === 3) {
+      dispatch({ type: 'SHOW_RESULT' });
+    }
   };
 
   const handleReset = () => {
@@ -75,24 +100,6 @@ function Tarot() {
     setFlippedCards([]);
     setCards(getNewDeck());
   };
-
-  const tarotReducer = (
-    state: ITarotState,
-    action: TarotAction
-  ): ITarotState => {
-    switch (action.type) {
-      case 'START_SELECTION':
-        return { status: 'SELECTING' };
-      case 'SHOW_RESULT':
-        return { status: 'RESULT' };
-      case 'RESET_GAME':
-        return { status: 'SHUFFLING' };
-      default:
-        return state;
-    }
-  };
-
-  const [gameState, dispatch] = useReducer(tarotReducer, initialState);
 
   // Renderizado del componente Tarot.
   return (
