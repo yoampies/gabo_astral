@@ -1,5 +1,3 @@
-// Card.tsx (Versión con CSS)
-
 import React from 'react';
 import { ICardProps } from '../types';
 
@@ -10,10 +8,12 @@ const Card = ({ card, onClick, isFlipped }: ICardProps) => {
       onClick={() => onClick(card)}
     >
       {/* Aplicamos la clase 'is-flipped' condicionalmente aquí */}
-      <div className={`inner-card w-full h-full ${isFlipped ? 'is-flipped' : ''}`}>
+      <div
+        className={`inner-card w-full h-full ${isFlipped ? 'is-flipped' : ''}`}
+      >
         {/* Cara Trasera */}
-        <div className='card-face card-back absolute w-full h-full bg-black rounded-xl'></div>
-        
+        <div className="card-face card-back absolute w-full h-full bg-black rounded-xl"></div>
+
         {/* Cara Frontal */}
         <div className="card-face card-front absolute w-full h-full">
           <img
