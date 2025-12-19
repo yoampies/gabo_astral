@@ -9,6 +9,9 @@ import synastry from '../assets/synastry.jpg';
 import solarreturn from '../assets/solar-return.jpg';
 import other from '../assets/other.jpg';
 
+import moonimg from '../assets/moon.jpg';
+import mercury from '../assets/mercury.png';
+
 //Interface imports
 import {
   IMajorArcanaCard,
@@ -16,6 +19,7 @@ import {
   ISlidesInfo,
   IReviewInfo,
   IAstrologyInfo,
+  IArticleDetails,
 } from '../types';
 
 //Major arcana imports
@@ -169,3 +173,34 @@ export const spread_times: string[] = [
   'Lo que está pasando',
   'Lo que puede pasar',
 ] as const;
+
+export const cosmicEvents: IArticleDetails[] = [
+  {
+    id: 1,
+    title: 'Luna nueva en Leo',
+    slug: 'luna-nueva-en-leo',
+    image: moonimg,
+    description:
+      'La Luna Nueva en Leo es un momento excelente para establecer intenciones...',
+    content: `La Luna Nueva en Leo marca el inicio de un ciclo de 28 días centrado en la soberanía personal y la chispa creativa. 
+            En la astrología, Leo rige el corazón y el plexo solar; por lo tanto, esta lunación nos invita a salir de las sombras y 
+            reclamar nuestro derecho a brillar. No es un momento para la modestia, sino para plantar semillas de proyectos que reflejen 
+            nuestra esencia más auténtica. Es el periodo ideal para rituales de amor propio, para iniciar emprendimientos artísticos o 
+            para reavivar la pasión en nuestras relaciones. Bajo este cielo, la pregunta clave es: ¿Qué haría si no tuviera miedo al 
+            juicio de los demás?`,
+  },
+  {
+    id: 2,
+    title: 'Mercurio entra en Virgo',
+    slug: 'mercurio-entra-en-virgo',
+    image: mercury,
+    description:
+      'Cuando Mercurio entra en Virgo, nos volvemos más analíticos...',
+    content: `Con la entrada de Mercurio en su domicilio terrestre, Virgo, la mente abandona el drama de Leo para enfocarse en la 
+    excelencia y la precisión. Durante este tránsito, nuestra capacidad analítica se agudiza, permitiéndonos organizar el caos con una 
+    eficiencia quirúrgica. Es la temporada perfecta para editar textos, planificar presupuestos complejos o iniciar rutinas de salud 
+    basadas en datos concretos. Virgo nos otorga el don del discernimiento: aprendemos a separar el trigo de la paja en nuestras 
+    conversaciones y pensamientos. Aprovecha esta energía para simplificar tu vida, optimizar tus flujos de trabajo y encontrar belleza 
+    en el orden y la utilidad.`,
+  },
+];

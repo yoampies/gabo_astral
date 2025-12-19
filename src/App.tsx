@@ -9,6 +9,7 @@ const Home = lazy(() => import('./pages/Home'));
 const Tarot = lazy(() => import('./pages/Tarot'));
 const Astrology = lazy(() => import('./pages/Astrology'));
 const Contact = lazy(() => import('./pages/Contact'));
+const ArticleDetails = lazy(() => import('./pages/ArticleDetails'));
 
 const App: React.FC = () => {
   return (
@@ -21,6 +22,7 @@ const App: React.FC = () => {
             <Route path="/tarot" element={<Tarot />} />
             <Route path="/astrologia" element={<Astrology />} />
             <Route path="/contacto" element={<Contact />} />
+            <Route path="/astrologia/:slug" element={<ArticleDetails />} />
           </Routes>
         </Suspense>
         <Footer />

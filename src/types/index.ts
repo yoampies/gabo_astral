@@ -119,3 +119,12 @@ export type TarotAction =
   | { type: 'START_SELECTION' }
   | { type: 'SHOW_RESULT' }
   | { type: 'RESET_GAME' };
+
+export interface IArticleDetails {
+  id: number;
+  title: string;
+  slug: string;
+  image: string;
+  description: string;
+  content: string;
+}
