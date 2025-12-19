@@ -74,27 +74,22 @@ function Tarot() {
 
   // Función manejadora que se ejecuta cuando se hace clic en una carta.
   const handleCardClick = (clickedCard: ITarotCards) => {
-    // Verifica si la carta ya está volteada o si ya se han seleccionado 3 cartas.
-    // Si alguna de estas condiciones es verdadera, la función no hace nada más.
     if (gameState.status !== 'SELECTING') return;
     if (clickedCard.flipped || flippedCards.length >= 3) return;
 
-    // Actualiza el estado 'cards' para voltear la carta clickeada.
     setCards((prevCards) =>
       prevCards.map((card) =>
-        // Si el ID de la carta actual coincide con el ID de la carta clickeada,
-        // crea una nueva carta con la propiedad 'flipped' establecida a true.
-        // De lo contrario, devuelve la carta sin cambios.
         card.id === clickedCard.id ? { ...card, flipped: true } : card
       )
     );
 
-    // Agrega la carta clickeada (ya volteada) al array 'flippedCards'.
     const newFlippedCards = [...flippedCards, clickedCard];
     setFlippedCards(newFlippedCards);
 
     if (newFlippedCards.length === 3) {
-      dispatch({ type: 'SHOW_RESULT' });
+      setTimeout(() => {
+        dispatch({ type: 'SHOW_RESULT' });
+      }, 1750);
     }
   };
 
