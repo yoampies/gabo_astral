@@ -30,12 +30,7 @@ const ModelCamera: React.FC<IModelCameraProps> = ({ isMobile, children }) => {
     } else {
       // Lógica para Móvil: Animación automática sutil
       if (groupRef.current) {
-        easing.dampE(
-          groupRef.current.rotation,
-          [0, state.clock.getElapsedTime() * 0.2, 0],
-          0.25,
-          delta
-        );
+        easing.dampE(groupRef.current.rotation, [0, 0, 0], 0.25, delta);
       }
     }
   });
