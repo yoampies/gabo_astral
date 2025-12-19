@@ -22,15 +22,19 @@ const shuffleDeck = (deck: IMajorArcanaCard[]): IMajorArcanaCard[] => {
 
 const getNewDeck = () => {
   const shuffledDeck = shuffleDeck(majorArcana);
-
   const partedDeck = shuffledDeck.slice(0, 10);
-  // Actualiza el estado 'cards' con el mazo barajado.
-  // Cada carta se mapea para añadirle un 'id' único y establecer su estado inicial 'flipped' a false.
-  return partedDeck.map((card, index) => ({
-    ...card, // Copia las propiedades existentes de la carta (name, image).
-    id: index, // Asigna un ID único basado en su índice en el mazo barajado.
-    flipped: false, // Inicializa la propiedad 'flipped' como falsa (la carta está boca abajo).
-  }));
+
+  return partedDeck.map((card, index) => {
+    // Definimos la probabilidad antes de retornar el objeto
+    const isReversed = Math.random() > 0.5;
+
+    return {
+      ...card,
+      id: index,
+      flipped: false,
+      isReversed: isReversed, // Ahora sí está definido
+    };
+  });
 };
 
 // Define el componente funcional principal 'Tarot'.
@@ -162,6 +166,7 @@ function Tarot() {
               onClick={handleCardClick} // Pasa la función manejadora de clics.
               card={card} // Pasa el objeto de datos de la carta.
               isFlipped={card.flipped} // Pasa el estado de volteo de la carta.
+              isReversed={card.isReversed}
             />
           ))}
         </div>
@@ -185,7 +190,7 @@ function Tarot() {
                   </h3>
                   <img
                     src={card.image}
-                    className="rounded-xl"
+                    className={`rounded-xl transition-transform duration-500 ${card.isReversed ? 'rotate-180' : ''}`}
                     alt={card.name}
                   />{' '}
                   {/* Muestra la imagen de la carta */}

@@ -36,12 +36,14 @@ export interface IAstrologyInfo {
 export interface ITarotCards extends IMajorArcanaCard {
   id: number;
   flipped: boolean;
+  isReversed: boolean;
 }
 
 export interface ICardProps {
   onClick: (card: ITarotCards) => void;
   card: ITarotCards;
   isFlipped: boolean;
+  isReversed: boolean;
 }
 
 export interface IFormData {
