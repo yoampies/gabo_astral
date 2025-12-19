@@ -14,7 +14,6 @@ const Card = ({ card, onClick, isFlipped, isReversed }: ICardProps) => {
 
     if (isFlipped) {
       gsap.to(element, {
-        // ✅ Ahora TypeScript sabe que 'element' no es null
         rotationY: 180,
         z: 50,
         duration: 0.6,
