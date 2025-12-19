@@ -4,35 +4,40 @@
 // - Events: Una sección para mostrar eventos.
 // - Reviews: Una sección para mostrar reseñas o testimonios.
 // - Footer: El pie de página de la aplicación.
-import Dashboard from '../sections/Dashboard'
-import Events from '../sections/Events'
-import Reviews from '../sections/Reviews'
-import Footer from '../sections/Footer'
-import React from 'react'
-
+import Dashboard from '../sections/Dashboard';
+import Events from '../sections/Events';
+import Reviews from '../sections/Reviews';
+import React from 'react';
+import { Helmet } from 'react-helmet-async';
 
 // Define el componente funcional 'Home'.
 // Los componentes funcionales son la forma moderna de escribir componentes en React.
 const Home: React.FC = () => {
-
   // El método 'return' de un componente funcional devuelve el JSX que se renderizará en la interfaz de usuario.
   return (
-    // Un div es el elemento contenedor principal para este componente.
-    // A menudo se usa un Fragment (<>...</>) si no se necesita un div DOM real,
-    // pero aquí se usa un div, que podría ser útil para aplicar estilos generales o
-    // para propósitos de estructura.
-    <div>
-      {/* Renderiza el componente Dashboard. Este será la primera sección visible en la página de inicio. */}
-      <Dashboard />
-      {/* Renderiza el componente Events. Esta sección aparecerá debajo del Dashboard. */}
-      <Events />
-      {/* Renderiza el componente Reviews. Esta sección aparecerá debajo de Events. */}
-      <Reviews />
-    </div>
-  )
-}
+    <>
+      <Helmet>
+        <title>Gabo Astral | Tarot, Astrología y Guía Espiritual</title>
+        <meta
+          name="description"
+          content="Bienvenido a Gabo Astral. Descubre tu camino a través del tarot, la lectura de carta natal y consejos astrológicos para tu crecimiento personal."
+        />
+        <meta property="og:title" content="Gabo Astral | Tarot y Astrología" />
+        <meta property="og:type" content="website" />
+      </Helmet>
+      <div>
+        {/* Renderiza el componente Dashboard. Este será la primera sección visible en la página de inicio. */}
+        <Dashboard />
+        {/* Renderiza el componente Events. Esta sección aparecerá debajo del Dashboard. */}
+        <Events />
+        {/* Renderiza el componente Reviews. Esta sección aparecerá debajo de Events. */}
+        <Reviews />
+      </div>
+    </>
+  );
+};
 
 // Exporta el componente 'Home' como el exportación por defecto del módulo.
 // Esto permite que el componente sea importado y utilizado en otras partes de la aplicación
 // usando una sintaxis como: import Home from './ruta/a/Home'.
-export default Home
+export default Home;
