@@ -1,0 +1,32 @@
+name: CI (Linter & Tests)
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Instalar dependencias
+        run: npm install
+
+      - name: Correr Linter
+        run: npm run lint
+        # Esto fallará si tienes errores de formato o reglas de ESLint rotas
+
+      - name: Correr Tests Unitarios
+        run: npm run test --run
+        # El flag --run es para que Vitest se ejecute una vez y no se quede en modo "watch"
