@@ -111,14 +111,14 @@ export interface ITarotState {
   status: TarotStatus;
 }
 
-export const initialState: ITarotState = {
-  status: 'SHUFFLING',
-};
-
 export type TarotAction =
   | { type: 'START_SELECTION' }
   | { type: 'SHOW_RESULT' }
   | { type: 'RESET_GAME' };
+
+export interface ITarotState {
+  status: 'SHUFFLING' | 'SELECTING' | 'RESULT';
+}
 
 export interface IArticleDetails {
   id: number;

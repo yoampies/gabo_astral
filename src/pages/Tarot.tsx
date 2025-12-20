@@ -5,13 +5,8 @@ import Card from '../components/Card.tsx';
 import TarotCarousel from '../components/TarotCarousel.tsx';
 import tarot from '../assets/tarot-banner.jpg';
 import { majorArcana, spread_times } from '../constants/constants';
-import {
-  ITarotCards,
-  IMajorArcanaCard,
-  ITarotState,
-  TarotAction,
-  initialState,
-} from '../types';
+import { tarotReducer, tarotInitialState } from '../reducers/tarotReducers.ts';
+import { ITarotCards, IMajorArcanaCard } from '../types';
 
 // Función auxiliar para barajar un array (deck).
 // Utiliza el algoritmo de Fisher-Yates (implícito en sort con una función aleatoria).
@@ -40,23 +35,7 @@ const getNewDeck = () => {
 
 // Define el componente funcional principal 'Tarot'.
 function Tarot() {
-  const tarotReducer = (
-    state: ITarotState,
-    action: TarotAction
-  ): ITarotState => {
-    switch (action.type) {
-      case 'START_SELECTION':
-        return { status: 'SELECTING' };
-      case 'SHOW_RESULT':
-        return { status: 'RESULT' };
-      case 'RESET_GAME':
-        return { status: 'SHUFFLING' };
-      default:
-        return state;
-    }
-  };
-
-  const [gameState, dispatch] = useReducer(tarotReducer, initialState);
+  const [gameState, dispatch] = useReducer(tarotReducer, tarotInitialState);
 
   // Estado para almacenar el mazo de cartas que se mostrarán y su estado (volteada/no volteada).
   // Inicialmente es un array vacío.
