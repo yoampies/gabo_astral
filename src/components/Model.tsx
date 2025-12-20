@@ -1,12 +1,13 @@
 import React from 'react';
 import { useGLTF } from '@react-three/drei';
-import scene from '../assets/models/scene.glb';
 import { IModelProps, GLTFResult, IModelNodes } from '../types';
 import { Mesh } from 'three';
 import * as THREE from 'three';
 
+const MODEL_PATH = '/models/scene.glb';
+
 const Model: React.FC<IModelProps> = (props) => {
-  const gltf = useGLTF(scene, true) as unknown as GLTFResult;
+  const gltf = useGLTF(MODEL_PATH, true) as unknown as GLTFResult;
 
   const { nodes, materials } = gltf;
   const typedNodes = nodes as unknown as IModelNodes;
@@ -1133,6 +1134,6 @@ const Model: React.FC<IModelProps> = (props) => {
   );
 };
 
-useGLTF.preload(scene, true);
+useGLTF.preload(MODEL_PATH, true);
 
 export default Model;

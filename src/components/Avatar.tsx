@@ -1,11 +1,12 @@
 import React from 'react';
 import { useGLTF } from '@react-three/drei';
-import avatarScene from '../assets/models/avatar.glb';
 import { IAvatarProps, GLTFResult } from '../types';
+
+const AVATAR_PATH = '/models/avatar.glb';
 
 const Avatar: React.FC<IAvatarProps> = (props) => {
   const { nodes, materials } = useGLTF(
-    avatarScene,
+    AVATAR_PATH,
     true
   ) as unknown as GLTFResult;
 
@@ -68,6 +69,6 @@ const Avatar: React.FC<IAvatarProps> = (props) => {
   );
 };
 
-useGLTF.preload(avatarScene, true);
+useGLTF.preload(AVATAR_PATH, true);
 
 export default Avatar;
