@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react'; // 1. Importamos lazy y Suspense
+import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 
@@ -6,7 +6,7 @@ import Navbar from './sections/Navbar';
 import Footer from './sections/Footer';
 import PageLoader from './components/PageLoader';
 
-const Home = lazy(() => import('./pages/Home'));
+import Home from './pages/Home';
 const Tarot = lazy(() => import('./pages/Tarot'));
 const Astrology = lazy(() => import('./pages/Astrology'));
 const Contact = lazy(() => import('./pages/Contact'));

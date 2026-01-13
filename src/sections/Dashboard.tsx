@@ -4,9 +4,9 @@ import {
   Bloom,
   ToneMapping,
 } from '@react-three/postprocessing';
-import { PerspectiveCamera } from '@react-three/drei';
+import { PerspectiveCamera, Preload } from '@react-three/drei'; // Importamos Preload
 import { useMediaQuery } from 'react-responsive';
-import React, { useMemo } from 'react';
+import React, { useMemo, Suspense } from 'react'; // Importamos Suspense
 
 import Model from '../components/Model.tsx';
 import ModelCamera from '../components/ModelCamera';
@@ -46,7 +46,6 @@ const Dashboard: React.FC = () => {
       <div className="w-full h-full absolute">
         <Canvas className="min-h-screen" id="canvasID" dpr={[1, 2]}>
           <color attach="background" args={['#000000']} />
-          <CanvasLoader />
 
           <PerspectiveCamera
             makeDefault
@@ -58,10 +57,18 @@ const Dashboard: React.FC = () => {
           <StarInteractionManager starPositions={starPositions} />
 
           <ModelCamera isMobile={isMobile}>
-            <Model
-              scale={modelScale}
-              position={modelPosition as [number, number, number]}
-            />
+            {/* [OPTIMIZACIÓN CRÍTICA] 
+               Envolvemos el modelo pesado en Suspense.
+               Mientras carga, muestra CanvasLoader (el porcentaje).
+               Preload 'all' compila los shaders antes de mostrar nada para evitar el tirón de 2 segundos.
+            */}
+            <Suspense fallback={<CanvasLoader />}>
+              <Model
+                scale={modelScale}
+                position={modelPosition as [number, number, number]}
+              />
+              <Preload all />
+            </Suspense>
           </ModelCamera>
 
           {!isMobile && (
