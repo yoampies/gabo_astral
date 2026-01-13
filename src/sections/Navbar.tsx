@@ -1,6 +1,7 @@
 import { navLinks } from '../constants/constants';
 import { INavLinks } from '../types';
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // 1. IMPORTANTE: Importamos Link
 
 const Navbar: React.FC = () => {
   // Estado para controlar el menú en móviles
@@ -11,10 +12,10 @@ const Navbar: React.FC = () => {
   return (
     <nav className="p-4 md:mx-12 relative z-50">
       <div className="container mx-auto flex justify-between items-center text-md text-gray-400 font-semibold">
-        {/* Logo / Inicio */}
-        <a href="/">
+        {/* Logo / Inicio - CAMBIO 1: Usar Link en lugar de a href */}
+        <Link to="/">
           <span className="hover:text-white transition-colors">Inicio</span>
-        </a>
+        </Link>
 
         {/* Botón Hamburguesa (Solo visible en móviles) */}
         <button
@@ -50,19 +51,19 @@ const Navbar: React.FC = () => {
         <ul className="hidden md:flex items-center gap-8">
           {navLinks.map((item: INavLinks) => (
             <li key={item.id}>
-              <a
-                href={item.href}
+              {/* CAMBIO 2: Usar Link en el menú de escritorio */}
+              <Link
+                to={item.href}
                 className="hover:text-white transition-all duration-150"
               >
                 {item.name}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
       </div>
 
       {/* Mobile Menu (Overlay) */}
-      {/* Usamos una transición simple de Tailwind */}
       <div
         className={`
         fixed inset-0 bg-black bg-opacity-95 flex flex-col items-center justify-center gap-8 transition-transform duration-300 ease-in-out md:hidden
@@ -90,14 +91,15 @@ const Navbar: React.FC = () => {
         </button>
 
         {navLinks.map((item: INavLinks) => (
-          <a
+          /* CAMBIO 3: Usar Link en el menú móvil */
+          <Link
             key={item.id}
-            href={item.href}
+            to={item.href}
             onClick={toggleMenu} // Cerramos el menú al hacer clic en un link
             className="text-2xl text-gray-400 hover:text-white transition-colors"
           >
             {item.name}
-          </a>
+          </Link>
         ))}
       </div>
     </nav>
