@@ -6,8 +6,6 @@ import { IStarIntersectionManagerProps } from '../types';
 const StarInteractionManager: React.FC<IStarIntersectionManagerProps> = ({
   starPositions,
 }) => {
-  // [CORRECCIÓN] Usamos 'any' para silenciar el error estricto de TypeScript.
-  // Esto permite que la referencia funcione sin problemas de compatibilidad.
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const instancesRef = useRef<any>(null!);
 

@@ -1,9 +1,8 @@
+import Dashboard from '../sections/Dashboard';
 import Events from '../sections/Events';
 import Reviews from '../sections/Reviews';
-import React, { lazy } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet-async';
-
-const Dashboard = lazy(() => import('../sections/Dashboard'));
 
 const Home: React.FC = () => {
   return (

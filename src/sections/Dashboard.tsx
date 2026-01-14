@@ -4,14 +4,15 @@ import {
   Bloom,
   ToneMapping,
 } from '@react-three/postprocessing';
-import { PerspectiveCamera, Preload } from '@react-three/drei'; // Importamos Preload
+import { PerspectiveCamera, Preload } from '@react-three/drei';
 import { useMediaQuery } from 'react-responsive';
-import React, { useMemo, Suspense } from 'react'; // Importamos Suspense
+import React, { useMemo, Suspense, lazy } from 'react';
 
-import Model from '../components/Model.tsx';
 import ModelCamera from '../components/ModelCamera';
 import CanvasLoader from '../components/CanvasLoader';
 import StarInteractionManager from '../components/StarInteractionManager.tsx';
+
+const Model = lazy(() => import('../components/Model.tsx'));
 
 const generateStarPosition = (count: number, range: number) => {
   const positions = [];
@@ -57,11 +58,6 @@ const Dashboard: React.FC = () => {
           <StarInteractionManager starPositions={starPositions} />
 
           <ModelCamera isMobile={isMobile}>
-            {/* [OPTIMIZACIÓN CRÍTICA] 
-               Envolvemos el modelo pesado en Suspense.
-               Mientras carga, muestra CanvasLoader (el porcentaje).
-               Preload 'all' compila los shaders antes de mostrar nada para evitar el tirón de 2 segundos.
-            */}
             <Suspense fallback={<CanvasLoader />}>
               <Model
                 scale={modelScale}
