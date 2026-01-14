@@ -35,8 +35,6 @@ const StarInteractionManager: React.FC<IStarIntersectionManagerProps> = ({
           position={position}
           // El color cambia solo si el ID coincide, gestionado por React
           color={hoveredId === index ? hoverColor : baseColor}
-          // Eventos nativos: El Raycaster solo se dispara cuando el mouse se mueve,
-          // eliminando el cálculo de 60 veces por segundo.
           onPointerOver={(e) => {
             e.stopPropagation();
             setHoveredId(index);

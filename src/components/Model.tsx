@@ -870,6 +870,4 @@ const Model: React.FC<IModelProps> = (props) => {
   );
 };
 
-useGLTF.preload(MODEL_PATH, true);
-
 export default Model;
