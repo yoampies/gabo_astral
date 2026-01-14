@@ -6,7 +6,7 @@ describe('Componente Card', () => {
   const mockCard = {
     id: 1,
     name: 'The Fool',
-    image: '/fool.jpg',
+    image: '/fool.webp',
     flipped: false,
     isReversed: false,
   };
@@ -29,7 +29,7 @@ describe('Componente Card', () => {
   const mockCard = {
     id: 1,
     name: 'The Moon',
-    image: '/moon.jpg',
+    image: '/moon.webp',
     flipped: false,
     isReversed: false,
   };
@@ -60,7 +60,7 @@ describe('Componente Card', () => {
     );
     const img = screen.getByAltText(/the moon/i);
     expect(img).toBeInTheDocument();
-    expect(img).toHaveAttribute('src', '/moon.jpg');
+    expect(img).toHaveAttribute('src', '/moon.webp');
   });
 
   it('debe ejecutar la función onClick al hacer clic', () => {

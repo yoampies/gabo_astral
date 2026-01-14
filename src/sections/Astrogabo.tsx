@@ -4,10 +4,10 @@ import Avatar from '../components/Avatar';
 import { OrbitControls, PerspectiveCamera, Preload } from '@react-three/drei';
 import CanvasLoader from '../components/CanvasLoader';
 
-import astrology from '../assets/astrology.png';
-import love from '../assets/love.png';
-import travel from '../assets/travel.png';
-import tarot from '../assets/tarot.png';
+import astrology from '../assets/astrology.webp';
+import love from '../assets/love.webp';
+import travel from '../assets/travel.webp';
+import tarot from '../assets/tarot.webp';
 
 const Astrogabo: React.FC = () => {
   return (

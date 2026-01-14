@@ -1,5 +1,5 @@
-/// <reference types="vitest" />
-import { defineConfig } from 'vitest/config';
+// vite.config.ts
+import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({
@@ -8,22 +8,12 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          'vendor-react': [
-            'react',
-            'react-dom',
-            'react-router-dom',
-            'react-helmet-async',
-          ],
-          'vendor-three': ['three', '@react-three/fiber', '@react-three/drei'],
-          'vendor-anim': ['gsap'],
+          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+          'three-vendor': ['three', '@react-three/fiber', '@react-three/drei'],
+          'anim-vendor': ['gsap', 'framer-motion'],
         },
       },
     },
     chunkSizeWarningLimit: 1000,
-  },
-  test: {
-    globals: true,
-    environment: 'jsdom',
-    setupFiles: './src/setupTests.ts',
   },
 });

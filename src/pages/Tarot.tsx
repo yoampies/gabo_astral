@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import '../App.css';
 import Card from '../components/Card.tsx';
 import TarotCarousel from '../components/TarotCarousel.tsx';
-import tarot from '../assets/tarot-banner.jpg';
+import tarot from '../assets/tarot-banner.webp';
 import { majorArcana, spread_times } from '../constants/constants';
 import { tarotReducer, tarotInitialState } from '../reducers/tarotReducers.ts';
 import { ITarotCards, IMajorArcanaCard } from '../types';

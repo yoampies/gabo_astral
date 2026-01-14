@@ -7,7 +7,7 @@ import { astrology } from '../constants/constants';
 import { IAstrologyInfo } from '../types';
 // Importa una imagen llamada 'nightsky' desde la carpeta de assets.
 // Esta imagen se utilizará como fondo para la sección del banner.
-import nightsky from '../assets/nightsky.jpg';
+import nightsky from '../assets/nightsky.webp';
 import { Helmet } from 'react-helmet-async';
 
 // Define el componente funcional 'Astrology'.

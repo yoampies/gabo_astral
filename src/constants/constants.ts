@@ -1,16 +1,16 @@
-import prof_pic_1 from '../assets/prof_pic1.jpg';
-import prof_pic_2 from '../assets/prof_pic2.jpg';
-import prof_pic_3 from '../assets/prof_pic3.jpg';
-import soul from '../assets/soul.jpg';
-import lifepath from '../assets/lifepath.jpg';
-import empowerment from '../assets/empowerment.jpg';
-import chart from '../assets/chart.jpg';
-import synastry from '../assets/synastry.jpg';
-import solarreturn from '../assets/solar-return.jpg';
-import other from '../assets/other.jpg';
+import prof_pic_1 from '../assets/prof_pic1.webp';
+import prof_pic_2 from '../assets/prof_pic2.webp';
+import prof_pic_3 from '../assets/prof_pic3.webp';
+import soul from '../assets/soul.webp';
+import lifepath from '../assets/lifepath.webp';
+import empowerment from '../assets/empowerment.webp';
+import chart from '../assets/chart.webp';
+import synastry from '../assets/synastry.webp';
+import solarreturn from '../assets/solar-return.webp';
+import other from '../assets/other.webp';
 
-import moonimg from '../assets/moon.jpg';
-import mercury from '../assets/mercury.png';
+import moonimg from '../assets/moon.webp';
+import mercury from '../assets/mercury.webp';
 
 //Interface imports
 import {
@@ -23,28 +23,28 @@ import {
 } from '../types';
 
 //Major arcana imports
-import fool from '../assets/tarot/Fool.jpg';
-import magician from '../assets/tarot/Magician.jpg';
-import highPriestess from '../assets/tarot/HighPriestess.jpg';
-import empress from '../assets/tarot/Empress.jpg';
-import emperor from '../assets/tarot/Emperor.jpg';
-import hierophant from '../assets/tarot/Hierophant.jpg';
-import lovers from '../assets/tarot/Lovers.jpg';
-import chariot from '../assets/tarot/Chariot.jpg';
-import strength from '../assets/tarot/Strength.jpg';
-import hermit from '../assets/tarot/Hermit.png';
-import wheelOfFortune from '../assets/tarot/WheelOfFortune.jpg';
-import justice from '../assets/tarot/Justice.jpg';
-import hangedMan from '../assets/tarot/HangedMan.jpg';
-import death from '../assets/tarot/Death.jpg';
-import temperance from '../assets/tarot/Temperance.jpg';
-import devil from '../assets/tarot/Devil.jpg';
-import tower from '../assets/tarot/Tower.jpg';
-import star from '../assets/tarot/Star.png';
-import moon from '../assets/tarot/Moon.png';
-import sun from '../assets/tarot/Sun.jpg';
-import judgement from '../assets/tarot/Judgement.jpg';
-import world from '../assets/tarot/World.jpg';
+import fool from '../assets/tarot/Fool.webp';
+import magician from '../assets/tarot/Magician.webp';
+import highPriestess from '../assets/tarot/HighPriestess.webp';
+import empress from '../assets/tarot/Empress.webp';
+import emperor from '../assets/tarot/Emperor.webp';
+import hierophant from '../assets/tarot/Hierophant.webp';
+import lovers from '../assets/tarot/Lovers.webp';
+import chariot from '../assets/tarot/Chariot.webp';
+import strength from '../assets/tarot/Strength.webp';
+import hermit from '../assets/tarot/Hermit.webp';
+import wheelOfFortune from '../assets/tarot/WheelOfFortune.webp';
+import justice from '../assets/tarot/Justice.webp';
+import hangedMan from '../assets/tarot/HangedMan.webp';
+import death from '../assets/tarot/Death.webp';
+import temperance from '../assets/tarot/Temperance.webp';
+import devil from '../assets/tarot/Devil.webp';
+import tower from '../assets/tarot/Tower.webp';
+import star from '../assets/tarot/Star.webp';
+import moon from '../assets/tarot/Moon.webp';
+import sun from '../assets/tarot/Sun.webp';
+import judgement from '../assets/tarot/Judgement.webp';
+import world from '../assets/tarot/World.webp';
 
 export const navLinks: INavLinks[] = [
   {
