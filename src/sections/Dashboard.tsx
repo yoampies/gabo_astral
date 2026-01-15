@@ -11,44 +11,41 @@ import ModelCamera from '../components/ModelCamera';
 import CanvasLoader from '../components/CanvasLoader';
 import StarInteractionManager from '../components/StarInteractionManager';
 
-const Model = lazy(() => import('../components/Model.tsx'));
+// Quitamos la extensión .tsx del import para seguir buenas prácticas
+const Model = lazy(() => import('../components/Model'));
 
 const generateStarPosition = (count: number, range: number) => {
   const positions = [];
   let safetyCheck = 0;
 
+  // PARÁMETROS DEL MODELO (Coinciden con tu Model.tsx)
+  const modelX = 3;
+  const modelY = 250;
+  const modelZ = -700;
+  const cameraZ = 35;
+
   while (positions.length < count && safetyCheck < count * 10) {
     safetyCheck++;
 
-    // 1. Reducimos ligeramente el spread para aumentar la densidad general
     const spread = range * 3.5;
-
-    // 2. FUNCIÓN DE CONCENTRACIÓN (Distribución Triangular/Gaussiana)
-    // Al sumar dos randoms, los resultados se agrupan en el centro (0).
-    // Esto crea el efecto de "cúmulo" denso alrededor del avatar.
     const gaussianX = Math.random() + Math.random() - 1;
     const gaussianY = Math.random() + Math.random() - 1;
 
     const x = gaussianX * spread;
-
-    // 3. CENTRADO PERFECTO
-    // Usamos el gaussianY y lo centramos en +45 (la misma altura que tu exclusionCenterY).
-    const y = gaussianY * (spread * 1.2) + 45;
-
+    const y = gaussianY * (spread * 1.2) + 75;
     const z = Math.random() * -80 - 20;
 
-    // Zona de exclusión (Hueco)
-    const exclusionWidth = 25;
-    const exclusionHeight = 40;
-    const exclusionCenterX = 0;
-    const exclusionCenterY = 45;
+    // [CÁLCULO DE PROYECCIÓN 3D]
+    const t = (cameraZ - z) / (cameraZ - modelZ);
 
-    const insideBoxX =
-      x > exclusionCenterX - exclusionWidth / 2 &&
-      x < exclusionCenterX + exclusionWidth / 2;
-    const insideBoxY =
-      y > exclusionCenterY - exclusionHeight / 2 &&
-      y < exclusionCenterY + exclusionHeight / 2;
+    const projectedModelX = (1 - t) * 0 + t * modelX;
+    const projectedModelY = (1 - t) * 0 + t * modelY;
+
+    const holeWidth = 25 * t * 5;
+    const holeHeight = 40 * t * 5;
+
+    const insideBoxX = Math.abs(x - projectedModelX) < holeWidth / 2;
+    const insideBoxY = Math.abs(y - projectedModelY) < holeHeight / 2;
 
     if (insideBoxX && insideBoxY) {
       continue;
@@ -60,13 +57,12 @@ const generateStarPosition = (count: number, range: number) => {
 };
 
 const Dashboard: React.FC = () => {
-  const isMobile = useMediaQuery({ maxWidth: 800 });
+  const isMobile = useMediaQuery({ maxWidth: 768 });
 
   const modelScale = 1;
   const modelPosition = isMobile ? [0, -4, 0] : [0, -3.5, 0];
 
   const starPositions = useMemo(
-    // Aumentamos a 700 para que el efecto de concentración sea espectacular
     () => generateStarPosition(isMobile ? 350 : 700, 40),
     [isMobile]
   );
@@ -77,7 +73,8 @@ const Dashboard: React.FC = () => {
         <Canvas
           className="min-h-screen"
           id="canvasID"
-          dpr={isMobile ? [1, 1.5] : [1, 2]}
+          dpr={isMobile ? [1, 1] : [1, 2]}
+          shadows={!isMobile}
         >
           <color attach="background" args={['#000000']} />
 
@@ -94,6 +91,7 @@ const Dashboard: React.FC = () => {
           <ModelCamera isMobile={isMobile}>
             <Suspense fallback={<CanvasLoader />}>
               <Model
+                isMobile={isMobile}
                 scale={modelScale}
                 position={modelPosition as [number, number, number]}
               />
@@ -102,7 +100,8 @@ const Dashboard: React.FC = () => {
           </ModelCamera>
 
           {!isMobile && (
-            <EffectComposer>
+            // CORRECCIÓN AQUÍ: Usamos enableNormalPass={false}
+            <EffectComposer enableNormalPass={false}>
               <ToneMapping />
               <Bloom
                 mipmapBlur
