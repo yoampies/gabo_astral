@@ -17,9 +17,11 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/tarot" element={<Tarot />} />
+
           <Route path="/astrologia" element={<Astrology />} />
+          <Route path="/astrologia/:slug" element={<ArticleDetails />} />
+
           <Route path="/contacto" element={<Contact />} />
-          <Route path="/articulo/:id" element={<ArticleDetails />} />
         </Routes>
       </Suspense>
     </BrowserRouter>

@@ -11,18 +11,16 @@ const StarInteractionManager: React.FC<IStarIntersectionManagerProps> = ({
 
   const hoverColor = useMemo(() => new THREE.Color('#90A4AE'), []);
   const baseColor = useMemo(() => new THREE.Color('#FFE6B7'), []);
-
-  // Estado local para manejar el color al pasar el mouse (Event Driven)
   const [hoveredId, setHoveredId] = useState<number | null>(null);
 
   return (
-    <Instances ref={instancesRef} limit={300} range={300}>
-      {/* [OPTIMIZACIÓN] Geometría reducida a 12 segmentos (antes 24) para menos carga de GPU */}
-      <sphereGeometry args={[0.05, 12, 12]} />
+    <Instances ref={instancesRef} limit={500} range={500}>
+      {/* Radio 0.2 para estrellas grandes y visibles */}
+      <sphereGeometry args={[0.2, 12, 12]} />
 
       <meshStandardMaterial
         emissive="#FFFFFF"
-        emissiveIntensity={10}
+        emissiveIntensity={40}
         color="#FFE6B7"
         toneMapped={false}
       />
@@ -31,7 +29,6 @@ const StarInteractionManager: React.FC<IStarIntersectionManagerProps> = ({
         <Instance
           key={index}
           position={position}
-          // El color cambia solo si el ID coincide, gestionado por React
           color={hoveredId === index ? hoverColor : baseColor}
           onPointerOver={(e) => {
             e.stopPropagation();
